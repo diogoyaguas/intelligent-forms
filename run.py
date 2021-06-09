@@ -1,6 +1,5 @@
 import pickle
 import json
-import requests
 from itertools import zip_longest
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
