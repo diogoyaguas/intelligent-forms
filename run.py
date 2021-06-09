@@ -7,11 +7,11 @@ app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, resources={
-            r"/classify": {"origins": "http://localhost:8081"}})
+            r"/classify": {"origins": "http://http://10.227.107.138:8025/"}})
 
 
 @app.route('/classify', methods=['POST'])
-@cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
+@cross_origin(origin='10.227.107.138', headers=['Content-Type', 'Authorization'])
 def classify():
 
     if request.method == 'POST':
