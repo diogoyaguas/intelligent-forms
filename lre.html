@@ -1,0 +1,2239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/style-lre.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <div class="container-contact100">
+    </div>
+    <div id="i3jcw" class="gjs-row">
+        <div id="ii2vh" class="gjs-cell">
+        </div>
+        <div class="gjs-cell">
+            <div class="wrap-contact100"><span class="contact100-form-title"><b id="iypi">
+                        Livro de Reclamações Eletrónico</b></span>
+                <form method="get" action="submit.html" class="contact100-form validate-form">
+
+                    <div class="w-full dis-none contact-denunciation">
+                        <div data-tooltip="A opção que selecionar irá ser verificada com o texto escrito na descrição."
+                            data-tooltip-pos="bottom" data-tooltip-length="" id="i2lvg" class="tooltip-component">
+                            <div class="wrap-input100 input100-select bg1">
+                                <span class="label-input100"><b id="iwrh">
+                                        <span id="i4eki">Intenção de contacto
+                                        </span></b></span>
+                                <select type="Text" id="izrw6" required>
+                                    <option value="">Por favor selecione uma opção</option>
+                                    <option value="opt1">Elogio</option>
+                                    <option value="opt2">Denúncia</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <span class="contact100-form-subtitle">
+                            Identificação do Utilizador
+                        </span>
+                        <div class="wrap-input100 bg1">
+                            <span class="label-input100">Nome</span>
+                            <input type="Text" name="name" placeholder="Nome" id="ic4cv" class="input100" />
+                        </div>
+                        <div class="wrap-input100 bg1">
+                            <span class="label-input100">Morada</span>
+                            <input type="text" name="morada" placeholder="Morada" id="it6rj" class="input100" />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-left">
+                            <span class="label-input100">Código-Postal</span>
+                            <input type="Text" name="CP" placeholder="Código Postal" inputmode="numeric" id="CP"
+                                pattern="\d{4}([ -]\d{3})?" class="input100" />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-right">
+                            <span class="label-input100">Localidade</span>
+                            <input type="Text" name="localidade" placeholder="Localidade" id="itf0e" class="input100" />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-left">
+                            <span class="label-input100">Telefone</span>
+                            <input type="Text" name="phone" placeholder="Telefone" maxlength="9" id="ig692"
+                                class="input100" />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-right">
+                            <span class="label-input100">Email</span>
+                            <input type="Email" name="email" placeholder="Email" id="ikrfi" class="input100" />
+                        </div>
+
+                        <span class="contact100-form-subtitle">
+                            Identificação dos factos
+                        </span>
+                        <div class="wrap-input100 bg1 validate-input">
+                            <span class="label-input100">Descrição*</span>
+                            <textarea type="text" name="descrição"
+                                placeholder="Descreve com detalhe os factos, pormenorizando o agente, de forma os campos abaixo serem autopreenchidos."
+                                id="text-1" required class="input100" rows="8"></textarea>
+                        </div>
+
+                        <span class="contact100-form-subtitle">
+                            Identificação do Operador Económico
+                        </span>
+                        <div class="wrap-input100 bg1 validate-input">
+                            <span class="label-input100">Nome*</span>
+                            <input type="Text" name="name" placeholder="Nome" id="iwud6" required class="input100"
+                                disabled />
+                        </div>
+                        <div class="wrap-input100 bg1 validate-input">
+                            <span class="label-input100">Morada*</span>
+                            <input type="text" name="morada" placeholder="Morada" id="idj2u" required class="input100"
+                                disabled />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-left">
+                            <span class="label-input100">Código-Postal</span>
+                            <input type="Text" name="CP" placeholder="Código Postal" inputmode="numeric" id="CP-3"
+                                pattern="\d{4}([ -]\d{3})?" class="input100" disabled />
+                        </div>
+
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-right">
+                            <span class="label-input100">Localidade*</span>
+                            <input type="Text" name="localidade" placeholder="Localidade" id="idkef" required
+                                classifier="Default" class="input100" disabled />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-left"><span
+                                class="label-input100">Telefone</span>
+                            <input type="Text" name="phone" placeholder="Telefone" maxlength="9" id="i9w3o"
+                                class="input100" disabled />
+                        </div>
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-right"><span class="label-input100">Email</span>
+                            <input type="Email" name="email" placeholder="Email" id="iq8iiu" class="input100"
+                                disabled />
+                        </div>
+                        <div class="bg1 validate-input">
+                            <button type="submit" id="i7022" class="submitButton">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="isiid" class="gjs-cell">
+        </div>
+    </div>
+    <script>var props = { "izrw6": { "purpose": "Inconsistency", "classifier": "Classifier1", "language": "Default", "component": "text-1", "insert": true } };
+        var ids = Object.keys(props).map(function (id) { return '#' + id }).join(',');
+        var els = document.querySelectorAll(ids);
+        for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function (props) {
+
+                function elemental(el) {
+                    el.oneEventListener = (event, func, id) => {
+                        if (el.lastEventListener == null || el.lastEventListener == 0) {
+                            el.lastEventListener = {};
+                        }
+                        if (el.lastEventListener[id] != null) {
+                            el.removeEventListener(event, el.lastEventListener[id]);
+                        }
+                        el.addEventListener(event, func);
+                        el.lastEventListener[id] = func;
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            el.parentNode.appendChild(temp);
+                        }
+                        temp.events = el.lastEventListener;
+                    }
+                    return el;
+                }
+
+                // eventhandler singleton, support querySelector, getElementById, etc, even support querySelectorAll and getElementsByClassName
+                function proxy(el) {
+                    if (!(el instanceof NodeList)) {
+                        return elemental(el);
+                    } else {
+                        el.forEach(ele => {
+                            ele = elemental(ele);
+                        });
+                        return el;
+                    }
+                }
+
+                // Collects the selected purpose and classifier.
+                var purpose = props.purpose;
+                var classifier = props.classifier;
+
+                // Checks whether there is a purpose for applying a model.
+                if (purpose == "None") {
+                    if (this.nodeName == "TEXTAREA") {
+                        if (this.lastEventListener != null && this.lastEventListener[this.id] != null) {
+                            this.removeEventListener("blur", this.lastEventListener[this.id])
+                            this.lastEventListener[this.id] = null;
+                        }
+                    } else if (props.component != "Default") {
+                        var extractor = proxy(document.getElementById(props.component));
+                        if (extractor.lastEventListener != null) {
+                            if (extractor.lastEventListener[this.id] != null) {
+                                extractor.removeEventListener("blur", extractor.lastEventListener[this.id])
+                                extractor.lastEventListener[this.id] = null;
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                if (!props.insert) return;
+
+                // Checks whether to apply a model to a Textarea.
+                if (this.nodeName == "TEXTAREA") {
+
+                    // Collects the selected values.
+                    var precision = props.precision / 100;
+                    var submit = props.submit;
+
+                    if (submit == "Block" && props.buttons != "Default") { // Block the button selected.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                        document.getElementById(props.buttons).disabled = true;
+                    } else if (submit == "Allow") { // Unlock  all buttons available.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                    } else if (submit == "Block" && props.buttons == "Default") return;
+
+                    if (classifier == "Default" || precision == 0) return;
+                    if (classifier == "Classifier3" && props.language == "Default") return;
+
+                    switch (classifier) { // Select the classifier.
+
+                        case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                            var component = proxy(document.getElementById(this.id));
+
+                            var listenerPortugueseSentimentAnalysisClassify = function listenerPortugueseSentimentAnalysisClassify() {
+
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                        "method": "POST",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                        },
+                                        "body": JSON.stringify({ "text": this.value })
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            if (result.confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (result.confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerPortugueseSentimentAnalysisClassify, this.id);
+
+                            break;
+                        case "Classifier3":
+
+                            var component = proxy(this);
+
+                            var listenerMultiLanguageClassify = function listenerMultiLanguageClassify() {
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                    var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                    url.search = new URLSearchParams(params).toString();
+
+                                    fetch(url, {
+                                        "method": "GET",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                        }
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            var confidence = result.document_sentiment.doc_sentiment_score;
+
+                                            if (confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerMultiLanguageClassify, this.id);
+
+                            break;
+                        case "Custom":
+
+                            /* -------------------------------------------------------
+                            this.addEventListener("blur", function () {
+                               if (this.value != "") { // Checks for text to classify.
+                  
+                                var url = new URL(<-- INSERT URL FOR API -->);
+                                var params = { <-- INSERT PARAMETERS --> };
+                                url.search = new URLSearchParams(params).toString();
+                  
+                                fetch(url, {
+                                  "method": <-- INSERT METHOD -->,
+                                  "headers": { <-- INSERT HEADERS --> }
+                                })
+                                  .then(response => response.json())
+                                  .then(result => {
+                                    <-- INSERT CODE TO HANDLE THE RESULT -->
+                                  })
+                                  .catch(err => {
+                                    console.error(err);
+                                  });
+                              }
+                            });
+                            ------------------------------------------------------------*/
+                            break;
+
+                    }
+                } else if (this.nodeName == "INPUT" || this.nodeName == "SELECT") { // Checks whether to apply a model to a Input.
+
+                    // Checks if there is a component selected to extract the information.
+                    if (props.component != "Default") {
+
+                        var extractor = proxy(document.getElementById(props.component)); // Component selected.
+                        if (extractor.param == null) {
+                            extractor.param = {};
+                        }
+
+                        switch (classifier) { // Select the classifier.
+
+                            case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                                extractor.param[this.id] = { classifier: "Classifier1", purpose: purpose };
+
+                                var listenerPortugueseSentimentAnalysisExtract = function listenerPortugueseSentimentAnalysisExtract(event) {
+
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                            "method": "POST",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                            },
+                                            "body": JSON.stringify({ "text": this.value })
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier1") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = result.prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == result.prediction) {
+                                                                    console.log("The model was able to verify that the information provided in the input is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the input is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+                                                                if ((element.value == "opt1" && result.prediction == "positivo") || (element.value == "opt2" && result.prediction == "negativo")) {
+                                                                    element.style.borderColor = "#228B22";
+                                                                    document.getElementById("i7022").disabled = false;
+                                                                    document.getElementById("i7022").style.backgroundColor = "#228B22";
+                                                                    document.getElementById("i7022").style.cursor = "pointer";
+
+                                                                    console.log("The model was able to verify that the information provided in the select is consistent.");
+                                                                } else {
+                                                                    element.style.borderColor = "#DC143C";
+                                                                    document.getElementById("i7022").disabled = true;
+                                                                    document.getElementById("i7022").style.backgroundColor = "#696969";
+                                                                    document.getElementById("i7022").style.cursor = "auto";
+                                                                    console.log("The model was unable to verify that the information provided in the select is consistent. Please rewrite.");
+                                                                }
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (result.prediction == "positivo")
+                                                                element.value = "opt1";
+
+                                                            else if (result.prediction == "negativo")
+                                                                element.value = "opt2";
+
+                                                            else if (result.prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                })
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerPortugueseSentimentAnalysisExtract, this.id);
+
+                                break;
+
+                            case "Classifier2": // Aplly Classifier 2 - Location Extractor
+
+                                extractor.param[this.id] = { classifier: "Classifier2", purpose: purpose };
+
+                                var listenerLocationExtract = function listenerLocationExtract(event) {
+
+                                    if (this.value !== "") {
+
+                                        var url = new URL("https://aylien-text.p.rapidapi.com/entities");
+                                        var params = { text: this.value };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "aylien-text.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier2") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var locations = result.entities.location;
+
+                                                        if (locations === undefined) {
+                                                            console.log("The model was unable to extract any location.");
+                                                            return;
+                                                        }
+
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") {
+
+                                                            element.value = locations[0];
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Inconsistency") {
+
+                                                            let location = element.value;
+
+                                                            if (element.nodeName == "SELECT") location = location.charAt(0).toUpperCase() + location.slice(1);
+
+                                                            if (locations.includes(location)) {
+                                                                console.log("The model was able to verify that the location provided is correct.");
+                                                            } else console.log("The model was unable to verify the location provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            for (var i = 0; i < element.options.length; i++) {
+                                                                if (element.options[i].value == locations[0].toLowerCase()) {
+                                                                    element.value = locations[0].toLowerCase();
+                                                                    return;
+                                                                }
+                                                                /* ---------------- */
+                                                                /* CHANGE CODE HERE */
+                                                                /* ---------------- */
+                                                            }
+                                                            console.log("The model was unable to select an option.");
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerLocationExtract, this.id);
+
+                                break;
+
+                            case "Classifier3":
+
+                                extractor.param[this.id] = { classifier: "Classifier3", purpose: purpose };
+
+                                var listenerMultiLanguageExtract = function listenerMultiLanguageExtract(event) {
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                        var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier3") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var prediction = result.document_sentiment.doc_sentiment;
+
+                                                        if (purpose == "Autocomplete" && eelement.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == prediction) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+
+                                                                if ((element.value == "opt1" && prediction == "Positive") || (element.value == "opt2" && prediction == "Negative")) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (prediction == "Positive")
+                                                                element.value = "opt1";
+
+                                                            else if (prediction == "Negative")
+                                                                element.value = "opt2";
+
+                                                            else if (prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerMultiLanguageExtract, this.id);
+
+                                break;
+                            case "Custom":
+                                /* ----------------------- */
+                                /* INSERT CUSTOM CODE HERE */
+                                /* ----------------------- */
+
+                                /* -------------------------------------------------------
+                                extractor.addEventListener("blur", function (event) {
+                                   if (this.value != "") { // Checks for text to classify.
+                      
+                                    var url = new URL(<-- INSERT URL FOR API -->);
+                                    var params = { <-- INSERT PARAMETERS --> };
+                                    url.search = new URLSearchParams(params).toString();
+                      
+                                    fetch(url, {
+                                      "method": <-- INSERT METHOD -->,
+                                      "headers": { <-- INSERT HEADERS --> }
+                                    })
+                                      .then(response => response.json())
+                                      .then(result => {
+                                        <-- INSERT CODE TO HANDLE THE RESULT -->
+                                      })
+                                      .catch(err => {
+                                        console.error(err);
+                                      });
+                                  }
+                                });
+                                ------------------------------------------------------------*/
+                                break;
+                        }
+
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            extractor.parentNode.appendChild(temp);
+                        }
+                        temp.param = extractor.param;
+                    }
+                }
+            }.bind(el))(props[el.id]);
+        }
+        var props = { "ic4cv": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "CP": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "itf0e": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "ig692": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "ikrfi": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "iwud6": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "CP-3": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "idkef": { "purpose": "Autocomplete", "classifier": "Classifier2", "language": "Default", "component": "idj2u", "insert": true }, "i9w3o": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false }, "iq8iiu": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false } };
+        var ids = Object.keys(props).map(function (id) { return '#' + id }).join(',');
+        var els = document.querySelectorAll(ids);
+        for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function (props) {
+
+                function elemental(el) {
+                    el.oneEventListener = (event, func, id) => {
+                        if (el.lastEventListener == null || el.lastEventListener == 0) {
+                            el.lastEventListener = {};
+                        }
+                        if (el.lastEventListener[id] != null) {
+                            el.removeEventListener(event, el.lastEventListener[id]);
+                        }
+                        el.addEventListener(event, func);
+                        el.lastEventListener[id] = func;
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            el.parentNode.appendChild(temp);
+                        }
+                        temp.events = el.lastEventListener;
+                    }
+                    return el;
+                }
+
+                // eventhandler singleton, support querySelector, getElementById, etc, even support querySelectorAll and getElementsByClassName
+                function proxy(el) {
+                    if (!(el instanceof NodeList)) {
+                        return elemental(el);
+                    } else {
+                        el.forEach(ele => {
+                            ele = elemental(ele);
+                        });
+                        return el;
+                    }
+                }
+
+                // Collects the selected purpose and classifier.
+                var purpose = props.purpose;
+                var classifier = props.classifier;
+
+                // Checks whether there is a purpose for applying a model.
+                if (purpose == "None") {
+                    if (this.nodeName == "TEXTAREA") {
+                        if (this.lastEventListener != null && this.lastEventListener[this.id] != null) {
+                            this.removeEventListener("blur", this.lastEventListener[this.id])
+                            this.lastEventListener[this.id] = null;
+                        }
+                    } else if (props.component != "Default") {
+                        var extractor = proxy(document.getElementById(props.component));
+                        if (extractor.lastEventListener != null) {
+                            if (extractor.lastEventListener[this.id] != null) {
+                                extractor.removeEventListener("blur", extractor.lastEventListener[this.id])
+                                extractor.lastEventListener[this.id] = null;
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                if (!props.insert) return;
+
+                // Checks whether to apply a model to a Textarea.
+                if (this.nodeName == "TEXTAREA") {
+
+                    // Collects the selected values.
+                    var precision = props.precision / 100;
+                    var submit = props.submit;
+
+                    if (submit == "Block" && props.buttons != "Default") { // Block the button selected.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                        document.getElementById(props.buttons).disabled = true;
+                    } else if (submit == "Allow") { // Unlock  all buttons available.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                    } else if (submit == "Block" && props.buttons == "Default") return;
+
+                    if (classifier == "Default" || precision == 0) return;
+                    if (classifier == "Classifier3" && props.language == "Default") return;
+
+                    switch (classifier) { // Select the classifier.
+
+                        case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                            var component = proxy(document.getElementById(this.id));
+
+                            var listenerPortugueseSentimentAnalysisClassify = function listenerPortugueseSentimentAnalysisClassify() {
+
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                        "method": "POST",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                        },
+                                        "body": JSON.stringify({ "text": this.value })
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            if (result.confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (result.confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerPortugueseSentimentAnalysisClassify, this.id);
+
+                            break;
+                        case "Classifier3":
+
+                            var component = proxy(this);
+
+                            var listenerMultiLanguageClassify = function listenerMultiLanguageClassify() {
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                    var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                    url.search = new URLSearchParams(params).toString();
+
+                                    fetch(url, {
+                                        "method": "GET",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                        }
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            var confidence = result.document_sentiment.doc_sentiment_score;
+
+                                            if (confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerMultiLanguageClassify, this.id);
+
+                            break;
+                        case "Custom":
+
+                            /* -------------------------------------------------------
+                            this.addEventListener("blur", function () {
+                               if (this.value != "") { // Checks for text to classify.
+                  
+                                var url = new URL(<-- INSERT URL FOR API -->);
+                                var params = { <-- INSERT PARAMETERS --> };
+                                url.search = new URLSearchParams(params).toString();
+                  
+                                fetch(url, {
+                                  "method": <-- INSERT METHOD -->,
+                                  "headers": { <-- INSERT HEADERS --> }
+                                })
+                                  .then(response => response.json())
+                                  .then(result => {
+                                    <-- INSERT CODE TO HANDLE THE RESULT -->
+                                  })
+                                  .catch(err => {
+                                    console.error(err);
+                                  });
+                              }
+                            });
+                            ------------------------------------------------------------*/
+                            break;
+
+                    }
+                } else if (this.nodeName == "INPUT" || this.nodeName == "SELECT") { // Checks whether to apply a model to a Input.
+
+                    // Checks if there is a component selected to extract the information.
+                    if (props.component != "Default") {
+
+                        var extractor = proxy(document.getElementById(props.component)); // Component selected.
+                        if (extractor.param == null) {
+                            extractor.param = {};
+                        }
+
+                        switch (classifier) { // Select the classifier.
+
+                            case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                                extractor.param[this.id] = { classifier: "Classifier1", purpose: purpose };
+
+                                var listenerPortugueseSentimentAnalysisExtract = function listenerPortugueseSentimentAnalysisExtract(event) {
+
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                            "method": "POST",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                            },
+                                            "body": JSON.stringify({ "text": this.value })
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier1") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = result.prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == result.prediction) {
+                                                                    console.log("The model was able to verify that the information provided in the input is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the input is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+                                                                if ((element.value == "opt1" && result.prediction == "positivo") || (element.value == "opt2" && result.prediction == "negativo")) {
+                                                                    console.log("The model was able to verify that the information provided in the select is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the select is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (result.prediction == "positivo")
+                                                                element.value = "opt1";
+
+                                                            else if (result.prediction == "negativo")
+                                                                element.value = "opt2";
+
+                                                            else if (result.prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                })
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerPortugueseSentimentAnalysisExtract, this.id);
+
+                                break;
+
+                            case "Classifier2": // Aplly Classifier 2 - Location Extractor
+
+                                extractor.param[this.id] = { classifier: "Classifier2", purpose: purpose };
+
+                                var listenerLocationExtract = function listenerLocationExtract(event) {
+
+                                    if (this.value !== "") {
+
+                                        var url = new URL("https://aylien-text.p.rapidapi.com/entities");
+                                        var params = { text: this.value };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "aylien-text.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier2") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var locations = result.entities.location;
+
+                                                        if (locations === undefined) {
+                                                            console.log("The model was unable to extract any location.");
+                                                            element.style.borderColor = "#DC143C"
+                                                            return;
+                                                        }
+
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") {
+
+                                                            element.value = locations[0];
+                                                            element.style.borderColor = "#228B22"
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Inconsistency") {
+
+                                                            let location = element.value;
+
+                                                            if (element.nodeName == "SELECT") location = location.charAt(0).toUpperCase() + location.slice(1);
+
+                                                            if (locations.includes(location)) {
+                                                                console.log("The model was able to verify that the location provided is correct.");
+                                                            } else console.log("The model was unable to verify the location provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            for (var i = 0; i < element.options.length; i++) {
+                                                                if (element.options[i].value == locations[0].toLowerCase()) {
+                                                                    element.value = locations[0].toLowerCase();
+                                                                    return;
+                                                                }
+                                                                /* ---------------- */
+                                                                /* CHANGE CODE HERE */
+                                                                /* ---------------- */
+                                                            }
+                                                            console.log("The model was unable to select an option.");
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerLocationExtract, this.id);
+
+                                break;
+
+                            case "Classifier3":
+
+                                extractor.param[this.id] = { classifier: "Classifier3", purpose: purpose };
+
+                                var listenerMultiLanguageExtract = function listenerMultiLanguageExtract(event) {
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                        var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier3") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var prediction = result.document_sentiment.doc_sentiment;
+
+                                                        if (purpose == "Autocomplete" && eelement.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == prediction) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+
+                                                                if ((element.value == "opt1" && prediction == "Positive") || (element.value == "opt2" && prediction == "Negative")) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (prediction == "Positive")
+                                                                element.value = "opt1";
+
+                                                            else if (prediction == "Negative")
+                                                                element.value = "opt2";
+
+                                                            else if (prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerMultiLanguageExtract, this.id);
+
+                                break;
+                            case "Custom":
+                                /* ----------------------- */
+                                /* INSERT CUSTOM CODE HERE */
+                                /* ----------------------- */
+
+                                /* -------------------------------------------------------
+                                extractor.addEventListener("blur", function (event) {
+                                   if (this.value != "") { // Checks for text to classify.
+                      
+                                    var url = new URL(<-- INSERT URL FOR API -->);
+                                    var params = { <-- INSERT PARAMETERS --> };
+                                    url.search = new URLSearchParams(params).toString();
+                      
+                                    fetch(url, {
+                                      "method": <-- INSERT METHOD -->,
+                                      "headers": { <-- INSERT HEADERS --> }
+                                    })
+                                      .then(response => response.json())
+                                      .then(result => {
+                                        <-- INSERT CODE TO HANDLE THE RESULT -->
+                                      })
+                                      .catch(err => {
+                                        console.error(err);
+                                      });
+                                  }
+                                });
+                                ------------------------------------------------------------*/
+                                break;
+                        }
+
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            extractor.parentNode.appendChild(temp);
+                        }
+                        temp.param = extractor.param;
+                    }
+                }
+            }.bind(el))(props[el.id]);
+        }
+        var props = { "it6rj": { "purpose": "None", "classifier": "Default", "language": "Default", "precision": 0, "submit": "Default", "buttons": "Default", "insert": false }, "idj2u": { "purpose": "None", "classifier": "Default", "language": "Default", "precision": 0, "submit": "Default", "buttons": "Default", "insert": false }, "text-1": { "purpose": "Classify", "classifier": "Classifier3", "language": "pt", "precision": "65", "submit": "Block", "buttons": "i7022", "insert": true } };
+        var ids = Object.keys(props).map(function (id) { return '#' + id }).join(',');
+        var els = document.querySelectorAll(ids);
+        for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function (props) {
+
+                function elemental(el) {
+                    el.oneEventListener = (event, func, id) => {
+                        if (el.lastEventListener == null || el.lastEventListener == 0) {
+                            el.lastEventListener = {};
+                        }
+                        if (el.lastEventListener[id] != null) {
+                            el.removeEventListener(event, el.lastEventListener[id]);
+                        }
+                        el.addEventListener(event, func);
+                        el.lastEventListener[id] = func;
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            el.parentNode.appendChild(temp);
+                        }
+                        temp.events = el.lastEventListener;
+                    }
+                    return el;
+                }
+
+                // eventhandler singleton, support querySelector, getElementById, etc, even support querySelectorAll and getElementsByClassName
+                function proxy(el) {
+                    if (!(el instanceof NodeList)) {
+                        return elemental(el);
+                    } else {
+                        el.forEach(ele => {
+                            ele = elemental(ele);
+                        });
+                        return el;
+                    }
+                }
+
+                // Collects the selected purpose and classifier.
+                var purpose = props.purpose;
+                var classifier = props.classifier;
+
+                // Checks whether there is a purpose for applying a model.
+                if (purpose == "None") {
+                    if (this.nodeName == "TEXTAREA") {
+                        if (this.lastEventListener != null && this.lastEventListener[this.id] != null) {
+                            this.removeEventListener("blur", this.lastEventListener[this.id])
+                            this.lastEventListener[this.id] = null;
+                        }
+                    } else if (props.component != "Default" && props.component != undefined) {
+                        var extractor = proxy(document.getElementById(props.component));
+                        if (extractor.lastEventListener != null) {
+                            if (extractor.lastEventListener[this.id] != null) {
+                                extractor.removeEventListener("blur", extractor.lastEventListener[this.id])
+                                extractor.lastEventListener[this.id] = null;
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                if (!props.insert) return;
+
+                // Checks whether to apply a model to a Textarea.
+                if (this.nodeName == "TEXTAREA") {
+
+                    // Collects the selected values.
+                    var precision = props.precision / 100;
+                    var submit = props.submit;
+
+                    if (submit == "Block" && props.buttons != "Default") { // Block the button selected.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                        document.getElementById(props.buttons).disabled = true;
+                    } else if (submit == "Allow") { // Unlock  all buttons available.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                    } else if (submit == "Block" && props.buttons == "Default") return;
+
+                    if (classifier == "Default" || precision == 0) return;
+                    if (classifier == "Classifier3" && props.language == "Default") return;
+
+                    switch (classifier) { // Select the classifier.
+
+                        case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                            var component = proxy(document.getElementById(this.id));
+
+                            var listenerPortugueseSentimentAnalysisClassify = function listenerPortugueseSentimentAnalysisClassify() {
+
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                        "method": "POST",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                        },
+                                        "body": JSON.stringify({ "text": this.value })
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            if (result.confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (result.confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerPortugueseSentimentAnalysisClassify, this.id);
+
+                            break;
+                        case "Classifier3":
+
+                            var component = proxy(this);
+
+                            if (this.fields == undefined) {
+                                var fields= [];
+                                var elements = ["iwud6", "idj2u", "CP-3", "idkef", "i9w3o", "iq8iiu"]
+                                elements.forEach(function callback(element, index) {
+                                    fields.push($('#' + element));
+                                });
+
+                                this.fields = fields;
+                            }
+
+                            var listenerMultiLanguageClassify = function listenerMultiLanguageClassify() {
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                    var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                    url.search = new URLSearchParams(params).toString();
+
+                                    fetch(url, {
+                                        "method": "GET",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                        }
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            var confidence = Math.abs(result.document_sentiment.doc_sentiment_score);
+
+                                            if (confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                    document.getElementById(props.buttons).style.backgroundColor = "#696969";
+                                                    document.getElementById(props.buttons).style.cursor = "auto";
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                    document.getElementById(props.buttons).style.backgroundColor = "#228B22";
+                                                    document.getElementById(props.buttons).style.cursor = "pointer";
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+
+                                    var url = new URL("https://aylien-text.p.rapidapi.com/entities");
+                                    var params = { text: this.value };
+                                    url.search = new URLSearchParams(params).toString();
+
+                                    fetch(url, {
+                                        "method": "GET",
+                                        "headers": {
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "aylien-text.p.rapidapi.com"
+                                        }
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            var locations = result.entities.location;
+
+                                            var list = JSON.parse(sessionStorage.getItem("list"));
+                                            var headers = list.pop();
+                                            var listLength = list.length;
+
+                                            var elements = ["iwud6", "idj2u", "CP-3", "idkef", "i9w3o", "iq8iiu"]
+
+                                            if (locations != undefined && locations.length != 0) {
+                                                for (var i = 0; i < locations.length; i++) {
+                                                    for (var j = 0; j < headers.length; j++) {
+                                                        if (headers[j] != "email")
+                                                            var temp = list.filter(el => el[headers[j]].toLowerCase().includes(locations[i].toLowerCase()));
+                                                        if (Array.isArray(temp) && temp.length != 0) {
+                                                            list = temp;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            if (list.length == listLength) {
+                                                this.style.borderColor = "#DC143C";
+                                                elements.forEach(function callback(element) {
+                                                    document.getElementById(element).disabled = false;
+                                                });
+                                            } else if (list.length == 1) {
+                                                elements.forEach(function callback(element, index) {
+                                                    $('#' + element)
+                                                        .replaceWith(this[index][0]);
+                                                    document.getElementById(element).value = list[0][headers[index]];
+                                                    if (document.getElementById(element).value != "") {
+                                                        document.getElementById(element).style.borderColor = "#1E90FF"
+                                                    } else document.getElementById(element).disabled = false;
+                                                }, this.fields);
+
+                                            } else if (list.length > 1) {
+                                                elements.forEach(function callback(element, index) {
+                                                    $('#' + element)
+                                                        .replaceWith(this[index][0]);
+                                                    var replace = true;
+                                                    list.forEach(function callback(item) {
+                                                        if (item[headers[index]] != "") {
+                                                            if (replace) {
+                                                                $('#' + element)
+                                                                    .replaceWith('<select id=' + element + ' name=' + headers[index] + '</select>');
+                                                                if (index <= 1)
+                                                                    $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
+                                                                replace = false;
+                                                            }
+                                                            $('#' + element).append('<option value="' + item[headers[index]] + '"> ' + item[headers[index]] + '</option>');
+                                                        }
+                                                    });
+                                                    $('#' + element).prop("disabled", false);
+                                                    $('#' + element + ' option').val(function (idx, val) {
+                                                        $(this).siblings('[value="' + val + '"]').remove();
+                                                    });
+                                                }, this.fields);
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerMultiLanguageClassify, this.id);
+
+                            break;
+                        case "Custom":
+
+                            /* -------------------------------------------------------
+                            this.addEventListener("blur", function () {
+                               if (this.value != "") { // Checks for text to classify.
+                  
+                                var url = new URL(<-- INSERT URL FOR API -->);
+                                var params = { <-- INSERT PARAMETERS --> };
+                                url.search = new URLSearchParams(params).toString();
+                  
+                                fetch(url, {
+                                  "method": <-- INSERT METHOD -->,
+                                  "headers": { <-- INSERT HEADERS --> }
+                                })
+                                  .then(response => response.json())
+                                  .then(result => {
+                                    <-- INSERT CODE TO HANDLE THE RESULT -->
+                                  })
+                                  .catch(err => {
+                                    console.error(err);
+                                  });
+                              }
+                            });
+                            ------------------------------------------------------------*/
+                            break;
+
+                    }
+                } else if (this.nodeName == "INPUT" || this.nodeName == "SELECT") { // Checks whether to apply a model to a Input.
+
+                    // Checks if there is a component selected to extract the information.
+                    if (props.component != "Default") {
+
+                        var extractor = proxy(document.getElementById(props.component)); // Component selected.
+                        if (extractor.param == null) {
+                            extractor.param = {};
+                        }
+
+                        switch (classifier) { // Select the classifier.
+
+                            case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                                extractor.param[this.id] = { classifier: "Classifier1", purpose: purpose };
+
+                                var listenerPortugueseSentimentAnalysisExtract = function listenerPortugueseSentimentAnalysisExtract(event) {
+
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                            "method": "POST",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                            },
+                                            "body": JSON.stringify({ "text": this.value })
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier1") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = result.prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == result.prediction) {
+                                                                    console.log("The model was able to verify that the information provided in the input is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the input is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+                                                                if ((element.value == "opt1" && result.prediction == "positivo") || (element.value == "opt2" && result.prediction == "negativo")) {
+                                                                    console.log("The model was able to verify that the information provided in the select is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the select is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (result.prediction == "positivo")
+                                                                element.value = "opt1";
+
+                                                            else if (result.prediction == "negativo")
+                                                                element.value = "opt2";
+
+                                                            else if (result.prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                })
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerPortugueseSentimentAnalysisExtract, this.id);
+
+                                break;
+
+                            case "Classifier2": // Aplly Classifier 2 - Location Extractor
+
+                                extractor.param[this.id] = { classifier: "Classifier2", purpose: purpose };
+
+                                var listenerLocationExtract = function listenerLocationExtract(event) {
+
+                                    if (this.value !== "") {
+
+                                        var url = new URL("https://aylien-text.p.rapidapi.com/entities");
+                                        var params = { text: this.value };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "aylien-text.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier2") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var locations = result.entities.location;
+
+                                                        if (locations === undefined) {
+                                                            console.log("The model was unable to extract any location.");
+                                                            return;
+                                                        }
+
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") {
+
+                                                            element.value = locations[0];
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Inconsistency") {
+
+                                                            let location = element.value;
+
+                                                            if (element.nodeName == "SELECT") location = location.charAt(0).toUpperCase() + location.slice(1);
+
+                                                            if (locations.includes(location)) {
+                                                                console.log("The model was able to verify that the location provided is correct.");
+                                                            } else console.log("The model was unable to verify the location provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            for (var i = 0; i < element.options.length; i++) {
+                                                                if (element.options[i].value == locations[0].toLowerCase()) {
+                                                                    element.value = locations[0].toLowerCase();
+                                                                    return;
+                                                                }
+                                                                /* ---------------- */
+                                                                /* CHANGE CODE HERE */
+                                                                /* ---------------- */
+                                                            }
+                                                            console.log("The model was unable to select an option.");
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerLocationExtract, this.id);
+
+                                break;
+
+                            case "Classifier3":
+
+                                extractor.param[this.id] = { classifier: "Classifier3", purpose: purpose };
+
+                                var listenerMultiLanguageExtract = function listenerMultiLanguageExtract(event) {
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                        var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier3") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var prediction = result.document_sentiment.doc_sentiment;
+
+                                                        if (purpose == "Autocomplete" && eelement.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == prediction) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+
+                                                                if ((element.value == "opt1" && prediction == "Positive") || (element.value == "opt2" && prediction == "Negative")) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (prediction == "Positive")
+                                                                element.value = "opt1";
+
+                                                            else if (prediction == "Negative")
+                                                                element.value = "opt2";
+
+                                                            else if (prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerMultiLanguageExtract, this.id);
+
+                                break;
+                            case "Custom":
+                                /* ----------------------- */
+                                /* INSERT CUSTOM CODE HERE */
+                                /* ----------------------- */
+
+                                /* -------------------------------------------------------
+                                extractor.addEventListener("blur", function (event) {
+                                   if (this.value != "") { // Checks for text to classify.
+                      
+                                    var url = new URL(<-- INSERT URL FOR API -->);
+                                    var params = { <-- INSERT PARAMETERS --> };
+                                    url.search = new URLSearchParams(params).toString();
+                      
+                                    fetch(url, {
+                                      "method": <-- INSERT METHOD -->,
+                                      "headers": { <-- INSERT HEADERS --> }
+                                    })
+                                      .then(response => response.json())
+                                      .then(result => {
+                                        <-- INSERT CODE TO HANDLE THE RESULT -->
+                                      })
+                                      .catch(err => {
+                                        console.error(err);
+                                      });
+                                  }
+                                });
+                                ------------------------------------------------------------*/
+                                break;
+                        }
+
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            extractor.parentNode.appendChild(temp);
+                        }
+                        temp.param = extractor.param;
+                    }
+                }
+            }.bind(el))(props[el.id]);
+        }
+        var props = { "i7022": { "purpose": "None", "classifier": "Default", "language": "Default", "component": "Default", "insert": false } };
+        var ids = Object.keys(props).map(function (id) { return '#' + id }).join(',');
+        var els = document.querySelectorAll(ids);
+        for (var i = 0, len = els.length; i < len; i++) {
+            var el = els[i];
+            (function (props) {
+
+                function elemental(el) {
+                    el.oneEventListener = (event, func, id) => {
+                        if (el.lastEventListener == null || el.lastEventListener == 0) {
+                            el.lastEventListener = {};
+                        }
+                        if (el.lastEventListener[id] != null) {
+                            el.removeEventListener(event, el.lastEventListener[id]);
+                        }
+                        el.addEventListener(event, func);
+                        el.lastEventListener[id] = func;
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            el.parentNode.appendChild(temp);
+                        }
+                        temp.events = el.lastEventListener;
+                    }
+                    return el;
+                }
+
+                // eventhandler singleton, support querySelector, getElementById, etc, even support querySelectorAll and getElementsByClassName
+                function proxy(el) {
+                    if (!(el instanceof NodeList)) {
+                        return elemental(el);
+                    } else {
+                        el.forEach(ele => {
+                            ele = elemental(ele);
+                        });
+                        return el;
+                    }
+                }
+
+                // Collects the selected purpose and classifier.
+                var purpose = props.purpose;
+                var classifier = props.classifier;
+
+                // Checks whether there is a purpose for applying a model.
+                if (purpose == "None") {
+                    if (this.nodeName == "TEXTAREA") {
+                        if (this.lastEventListener != null && this.lastEventListener[this.id] != null) {
+                            this.removeEventListener("blur", this.lastEventListener[this.id])
+                            this.lastEventListener[this.id] = null;
+                        }
+                    } else if (props.component != "Default") {
+                        var extractor = proxy(document.getElementById(props.component));
+                        if (extractor.lastEventListener != null) {
+                            if (extractor.lastEventListener[this.id] != null) {
+                                extractor.removeEventListener("blur", extractor.lastEventListener[this.id])
+                                extractor.lastEventListener[this.id] = null;
+                            }
+                        }
+                    }
+                    return;
+                }
+
+                if (!props.insert) return;
+
+                // Checks whether to apply a model to a Textarea.
+                if (this.nodeName == "TEXTAREA") {
+
+                    // Collects the selected values.
+                    var precision = props.precision / 100;
+                    var submit = props.submit;
+
+                    if (submit == "Block" && props.buttons != "Default") { // Block the button selected.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                        document.getElementById(props.buttons).disabled = true;
+                    } else if (submit == "Allow") { // Unlock  all buttons available.
+                        document.querySelectorAll("button").forEach(function (button) { button.disabled = false; });
+                    } else if (submit == "Block" && props.buttons == "Default") return;
+
+                    if (classifier == "Default" || precision == 0) return;
+                    if (classifier == "Classifier3" && props.language == "Default") return;
+
+                    switch (classifier) { // Select the classifier.
+
+                        case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                            var component = proxy(document.getElementById(this.id));
+
+                            var listenerPortugueseSentimentAnalysisClassify = function listenerPortugueseSentimentAnalysisClassify() {
+
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                        "method": "POST",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                        },
+                                        "body": JSON.stringify({ "text": this.value })
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            if (result.confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (result.confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerPortugueseSentimentAnalysisClassify, this.id);
+
+                            break;
+                        case "Classifier3":
+
+                            var component = proxy(this);
+
+                            var listenerMultiLanguageClassify = function listenerMultiLanguageClassify() {
+                                if (this.value != "") { // Checks for text to classify.
+
+                                    var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                    var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                    url.search = new URLSearchParams(params).toString();
+
+                                    fetch(url, {
+                                        "method": "GET",
+                                        "headers": {
+                                            "content-type": "application/json",
+                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                            "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                        }
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+
+                                            var confidence = result.document_sentiment.doc_sentiment_score;
+
+                                            if (confidence < precision) { // The classification was not possible with the selected precision level.
+                                                if (submit == "Block") { // Block the button selected.
+                                                    document.getElementById(props.buttons).disabled = true;
+                                                }
+                                                console.log("It was not possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            } else if (confidence >= precision) { // The classification was  possible with the selected precision level.
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                }
+                                                console.log("It was possible to classify with the selected precision level");
+                                                /* ---------------- */
+                                                /* CHANGE CODE HERE */
+                                                /* ---------------- */
+                                            }
+                                        })
+                                        .catch(err => {
+                                            console.error(err);
+                                        });
+                                }
+                            }
+
+                            component.oneEventListener("blur", listenerMultiLanguageClassify, this.id);
+
+                            break;
+                        case "Custom":
+
+                            /* -------------------------------------------------------
+                            this.addEventListener("blur", function () {
+                               if (this.value != "") { // Checks for text to classify.
+                  
+                                var url = new URL(<-- INSERT URL FOR API -->);
+                                var params = { <-- INSERT PARAMETERS --> };
+                                url.search = new URLSearchParams(params).toString();
+                  
+                                fetch(url, {
+                                  "method": <-- INSERT METHOD -->,
+                                  "headers": { <-- INSERT HEADERS --> }
+                                })
+                                  .then(response => response.json())
+                                  .then(result => {
+                                    <-- INSERT CODE TO HANDLE THE RESULT -->
+                                  })
+                                  .catch(err => {
+                                    console.error(err);
+                                  });
+                              }
+                            });
+                            ------------------------------------------------------------*/
+                            break;
+
+                    }
+                } else if (this.nodeName == "INPUT" || this.nodeName == "SELECT") { // Checks whether to apply a model to a Input.
+
+                    // Checks if there is a component selected to extract the information.
+                    if (props.component != "Default") {
+
+                        var extractor = proxy(document.getElementById(props.component)); // Component selected.
+                        if (extractor.param == null) {
+                            extractor.param = {};
+                        }
+
+                        switch (classifier) { // Select the classifier.
+
+                            case "Classifier1": // Aplly Classifier 1 - Portuguese Sentiment Analysis.
+
+                                extractor.param[this.id] = { classifier: "Classifier1", purpose: purpose };
+
+                                var listenerPortugueseSentimentAnalysisExtract = function listenerPortugueseSentimentAnalysisExtract(event) {
+
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        fetch("https://sentiment-analysis-portuguese-br.p.rapidapi.com/sentiment", {
+                                            "method": "POST",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "sentiment-analysis-portuguese-br.p.rapidapi.com"
+                                            },
+                                            "body": JSON.stringify({ "text": this.value })
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier1") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = result.prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == result.prediction) {
+                                                                    console.log("The model was able to verify that the information provided in the input is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the input is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+                                                                if ((element.value == "opt1" && result.prediction == "positivo") || (element.value == "opt2" && result.prediction == "negativo")) {
+                                                                    console.log("The model was able to verify that the information provided in the select is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided in the select is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (result.prediction == "positivo")
+                                                                element.value = "opt1";
+
+                                                            else if (result.prediction == "negativo")
+                                                                element.value = "opt2";
+
+                                                            else if (result.prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                })
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerPortugueseSentimentAnalysisExtract, this.id);
+
+                                break;
+
+                            case "Classifier2": // Aplly Classifier 2 - Location Extractor
+
+                                extractor.param[this.id] = { classifier: "Classifier2", purpose: purpose };
+
+                                var listenerLocationExtract = function listenerLocationExtract(event) {
+
+                                    if (this.value !== "") {
+
+                                        var url = new URL("https://aylien-text.p.rapidapi.com/entities");
+                                        var params = { text: this.value };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "aylien-text.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier2") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var locations = result.entities.location;
+
+                                                        if (locations === undefined) {
+                                                            console.log("The model was unable to extract any location.");
+                                                            return;
+                                                        }
+
+                                                        if (purpose == "Autocomplete" && element.nodeName == "INPUT") {
+
+                                                            element.value = locations[0];
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Inconsistency") {
+
+                                                            let location = element.value;
+
+                                                            if (element.nodeName == "SELECT") location = location.charAt(0).toUpperCase() + location.slice(1);
+
+                                                            if (locations.includes(location)) {
+                                                                console.log("The model was able to verify that the location provided is correct.");
+                                                            } else console.log("The model was unable to verify the location provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            for (var i = 0; i < element.options.length; i++) {
+                                                                if (element.options[i].value == locations[0].toLowerCase()) {
+                                                                    element.value = locations[0].toLowerCase();
+                                                                    return;
+                                                                }
+                                                                /* ---------------- */
+                                                                /* CHANGE CODE HERE */
+                                                                /* ---------------- */
+                                                            }
+                                                            console.log("The model was unable to select an option.");
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerLocationExtract, this.id);
+
+                                break;
+
+                            case "Classifier3":
+
+                                extractor.param[this.id] = { classifier: "Classifier3", purpose: purpose };
+
+                                var listenerMultiLanguageExtract = function listenerMultiLanguageExtract(event) {
+                                    if (this.value != "") { // Checks for text to classify.
+
+                                        var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
+                                        var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
+                                        url.search = new URLSearchParams(params).toString();
+
+                                        fetch(url, {
+                                            "method": "GET",
+                                            "headers": {
+                                                "content-type": "application/json",
+                                                "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
+                                                "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
+                                            }
+                                        })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                var elements = event.target.param;
+                                                Object.keys(elements).forEach(function (key) {
+                                                    if (elements[key].classifier == "Classifier3") {
+                                                        var element = document.getElementById(key);
+                                                        var purpose = elements[key].purpose;
+                                                        var prediction = result.document_sentiment.doc_sentiment;
+
+                                                        if (purpose == "Autocomplete" && eelement.nodeName == "INPUT") { // Completes input automatically
+                                                            element.value = prediction;
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        } else if (purpose == "Inconsistency") { // Checks for information inconsistency.
+
+                                                            if (element.nodeName == "INPUT") {
+
+                                                                if (element.value == prediction) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            } else if (element.nodeName == "SELECT") {
+
+                                                                if ((element.value == "opt1" && prediction == "Positive") || (element.value == "opt2" && prediction == "Negative")) {
+                                                                    console.log("The model was able to verify that the information provided is consistent.");
+                                                                } else console.log("The model was unable to verify that the information provided is consistent. Please rewrite.");
+
+                                                            }
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+
+                                                        } else if (purpose == "Autoselect" && element.nodeName == "SELECT") {
+
+                                                            if (prediction == "Positive")
+                                                                element.value = "opt1";
+
+                                                            else if (prediction == "Negative")
+                                                                element.value = "opt2";
+
+                                                            else if (prediction == undefined)
+                                                                console.log("The model was unable to verify the information provided");
+                                                            /* ---------------- */
+                                                            /* CHANGE CODE HERE */
+                                                            /* ---------------- */
+                                                        }
+                                                    }
+                                                }
+                                                )
+                                            })
+                                            .catch(err => {
+                                                console.error(err);
+                                            });
+                                    }
+                                };
+
+                                extractor.oneEventListener("blur", listenerMultiLanguageExtract, this.id);
+
+                                break;
+                            case "Custom":
+                                /* ----------------------- */
+                                /* INSERT CUSTOM CODE HERE */
+                                /* ----------------------- */
+
+                                /* -------------------------------------------------------
+                                extractor.addEventListener("blur", function (event) {
+                                   if (this.value != "") { // Checks for text to classify.
+                      
+                                    var url = new URL(<-- INSERT URL FOR API -->);
+                                    var params = { <-- INSERT PARAMETERS --> };
+                                    url.search = new URLSearchParams(params).toString();
+                      
+                                    fetch(url, {
+                                      "method": <-- INSERT METHOD -->,
+                                      "headers": { <-- INSERT HEADERS --> }
+                                    })
+                                      .then(response => response.json())
+                                      .then(result => {
+                                        <-- INSERT CODE TO HANDLE THE RESULT -->
+                                      })
+                                      .catch(err => {
+                                        console.error(err);
+                                      });
+                                  }
+                                });
+                                ------------------------------------------------------------*/
+                                break;
+                        }
+
+                        var temp = document.getElementById("temp");
+                        if (!temp) {
+                            temp = document.createElement("span");
+                            temp.id = "temp";
+                            extractor.parentNode.appendChild(temp);
+                        }
+                        temp.param = extractor.param;
+                    }
+                }
+            }.bind(el))(props[el.id]);
+        }</script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "supermercados.csv",
+                dataType: "text",
+                success: function (data) { processData(data); }
+            });
+        });
+
+        function processData(allText) {
+            var allTextLines = allText.split(/\r\n|\n/);
+            var headers = allTextLines[0].split(',');
+            var lines = [];
+
+            for (var i = 1; i < allTextLines.length; i++) {
+                var data = allTextLines[i].split(',');
+                if (data.length == headers.length) {
+
+                    var tarr = {};
+                    for (var j = 0; j < headers.length; j++) {
+                        var header = headers[j];
+                        var content = data[j];
+                        tarr[header] = content;
+                    }
+
+                    lines.push(tarr);
+                }
+            }
+            lines.push(headers);
+            sessionStorage.setItem("list", JSON.stringify(lines));
+        }
+    </script>
+</body>
+<html>
