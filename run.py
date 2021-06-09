@@ -20,6 +20,9 @@ def classify():
         model_name = req.get('model')
         task = req.get('task')
 
+        print(model_name)
+        print(task)
+
         with open(f"{model_name}/{task}/model/vectorizer.pkl", "rb") as input_file:
             vectorizer = pickle.load(input_file)
 
