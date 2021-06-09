@@ -35,9 +35,7 @@ def classify():
         classes = {idx: value for idx, value in enumerate(label_vectorizer.classes_)}
         y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
         res = [dict(zip_longest(classes, probs)) for probs in y_predict_proba][0]
-        print(res)
         for key in range(len(res)):
-            print(classes[key])
             res[classes[key]] = res.pop(key)
 
         print(res)

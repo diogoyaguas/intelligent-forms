@@ -857,6 +857,17 @@
                                     })
                                         .then(response => {
                                             console.log(response)
+
+                                            fetch("http://10.227.107.138:8026/classify", {
+                                                "method": "POST",
+                                                "headers": {
+                                                    "Access-Control-Allow-Origin": "*",
+                                                    "Access-Control-Allow-Methods": "POST",
+                                                    "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+                                                },
+                                                "body": JSON.stringify({ "text": this.value, "model": "/home/tro/server2/out/20210410_110610", "task": "competence_class" })
+                                            })
+                                                .then(response => console.log(response))
                                         })
                                 }
                             });
