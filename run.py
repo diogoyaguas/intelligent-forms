@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, resources={
-            r"/classify": {"origins": "http://http://10.227.107.138:8025/"}})
+            r"/classify": {"origins": "http://10.227.107.138:8025"}})
 
 
 @app.route('/classify', methods=['POST'])
