@@ -859,6 +859,7 @@
                                         .then(result => {
 
                                             console.log(result)
+                                            console.log(Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b));
 
                                             fetch("http://10.227.107.138:8026/classify", {
                                                 "method": "POST",
