@@ -849,6 +849,10 @@
                                     document.getElementById("i4w2ab").classList.add("alerts-border");
                                     document.getElementById("iep8x").classList.add("alerts-border");
 
+                                    document.getElementById(props.buttons).disabled = true;
+                                    document.getElementById(props.buttons).style.backgroundColor = "#696969";
+                                    document.getElementById(props.buttons).style.cursor = "auto";
+
                                     fetch("http://10.227.107.138:8026/classify", {
                                         "method": "POST",
                                         "headers": {
@@ -883,7 +887,7 @@
                                                 .then(result => {
                                                     var key = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
                                                     var competence = key;
-                                                    if(key == "OTHER") {
+                                                    if (key == "OTHER") {
                                                         competence = "Outra entidade"
                                                     }
                                                     document.getElementById("iep8x").value = competence;
