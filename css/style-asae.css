@@ -414,6 +414,15 @@ select {
     width: 50%;
 }
 
+.alerts-border {
+    border-color: #1E90FF;
+    
+    animation: blink 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink { 50% { border-color:#fff ; }  }
+
 @media (max-width: 1290px) {
 
     .wrap-input100.bg1.rs1-wrap-input100-right {

@@ -101,16 +101,10 @@
                 </form>
 
                 <div data-tooltip="Irá ser preenchido automaticamente." data-tooltip-length="" data-tooltip-pos="right"
-                    id="ipm46i" class="tooltip-component wrap-input100 bg1">
+                    id="ipm46i" class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-left">
                     <span class="label-input100">Atividade Económica*</span>
                     <input type="Text" name="atividade_económica" placeholder="Atividade económica" required
                         classifier="Default" id="i4w2ab" class="input100" disabled />
-                </div>
-                <div data-tooltip="Irá ser preenchido automaticamente." data-tooltip-length="" data-tooltip-pos="right"
-                    class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-left" id="izpjg">
-                    <span class="label-input100">Infração*</span>
-                    <input type="Text" name="infração" placeholder="Infração" required classifier="Default" id="iep7x"
-                        class="input100" disabled />
                 </div>
                 <div data-tooltip="Irá ser preenchido automaticamente." data-tooltip-length="" data-tooltip-pos="right"
                     class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-right" id="izpjg">
@@ -846,6 +840,9 @@
                             this.addEventListener("blur", function () {
                                 if (this.value != "") { // Checks for text to classify.
 
+                                    document.getElementById("i4w2ab").classList.add("alerts-border");
+                                    document.getElementById("iep8x").classList.add("alerts-border");
+
                                     fetch("http://10.227.107.138:8026/classify", {
                                         "method": "POST",
                                         "headers": {
@@ -858,8 +855,8 @@
                                         .then(response => response.json())
                                         .then(result => {
 
-                                            console.log(result)
-                                            console.log(Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b));
+                                            document.getElementById("i4w2ab").value = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                            document.getElementById("i4w2ab").classList.remove("alerts-border");
 
                                             fetch("http://10.227.107.138:8026/classify", {
                                                 "method": "POST",
@@ -872,7 +869,8 @@
                                             })
                                                 .then(response => response.json())
                                                 .then(result => {
-                                                    console.log(result)
+                                                    document.getElementById("iep8x").value = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                                    document.getElementById("iep8x").classList.remove("alerts-border");
                                                 })
                                         })
                                 }
