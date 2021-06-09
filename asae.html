@@ -16,7 +16,7 @@
         <div id="in77" class="gjs-cell">
             <div class="wrap-contact100"><span class="contact100-form-title"><b id="iypi">
                         Queixas e Denúncias</b></span>
-                <form method="get" onsubmit="return false;" class="contact100-form validate-form">
+                <form method="get" action="submit.html" class="contact100-form validate-form">
                     <div class="w-full dis-none contact-denunciation"><span class="contact100-form-subtitle">Queixoso /
                             Denunciante</span>
                         <div class="wrap-input100 bg1">
@@ -63,8 +63,7 @@
                             <input type="Text" name="CP" placeholder="Código Postal" inputmode="numeric"
                                 pattern="\d{4}([ -]\d{3})?" id="i0qr69" class="input100" />
                         </div>
-                        <div class="wrap-input100 bg1 rs1-wrap-input100-right"
-                            id="iq8gu">
+                        <div class="wrap-input100 bg1 rs1-wrap-input100-right" id="iq8gu">
                             <span class="label-input100">Localidade*</span>
                             <input type="Text" name="localidade" placeholder="Localidade" required classifier="Default"
                                 id="illg3" class="input100" />
@@ -88,7 +87,8 @@
                                 pattern="\d{4}([ -]\d{3})?" class="input100" />
                         </div>
                         <div data-tooltip="Irá ser preenchido automaticamente." data-tooltip-length=""
-                        data-tooltip-pos="right" class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-right">
+                            data-tooltip-pos="right"
+                            class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-right">
                             <span class="label-input100">Local*</span>
                             <input type="Text" name="localidade" placeholder="Local" id="idkef" required
                                 classifier="Default" class="input100" disabled />
@@ -105,12 +105,14 @@
                     <span class="label-input100">Atividade Económica*</span>
                     <input type="Text" name="atividade_económica" placeholder="Atividade económica" required
                         classifier="Default" id="i4w2ab" class="input100" disabled />
+                    <input type="hidden" id="i4w2ab1">
                 </div>
                 <div data-tooltip="Irá ser preenchido automaticamente." data-tooltip-length="" data-tooltip-pos="right"
                     class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-right" id="izpjg">
                     <span class="label-input100">Competência*</span>
                     <input type="Text" name="infração" placeholder="Competência" required classifier="Default"
                         id="iep8x" class="input100" disabled />
+                    <input type="hidden" id="iep8x1P">
                 </div>
                 <div class="bg1">
                     <button type="submit" id="i7022" class="submitButton">Enviar</button>
@@ -840,6 +842,10 @@
                             this.addEventListener("blur", function () {
                                 if (this.value != "") { // Checks for text to classify.
 
+                                    document.getElementById("i4w2ab").classList.remove("wrong-border");
+                                    document.getElementById("i4w2ab").classList.remove("correct-border");
+                                    document.getElementById("iep8x").classList.remove("wrong-border");
+                                    document.getElementById("iep8x").classList.remove("correct-border");
                                     document.getElementById("i4w2ab").classList.add("alerts-border");
                                     document.getElementById("iep8x").classList.add("alerts-border");
 
@@ -855,8 +861,14 @@
                                         .then(response => response.json())
                                         .then(result => {
 
-                                            document.getElementById("i4w2ab").value = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                            var key = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                            document.getElementById("i4w2ab").value = key;
+                                            document.getElementById("i4w2ab1").value = result[key];
                                             document.getElementById("i4w2ab").classList.remove("alerts-border");
+
+                                            if (document.getElementById("i4w2ab1").value < 0.1) {
+                                                document.getElementById("i4w2ab").classList.add("wrong-border");
+                                            } else document.getElementById("i4w2ab").classList.add("correct-border");
 
                                             fetch("http://10.227.107.138:8026/classify", {
                                                 "method": "POST",
@@ -869,8 +881,27 @@
                                             })
                                                 .then(response => response.json())
                                                 .then(result => {
-                                                    document.getElementById("iep8x").value = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                                    var key = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                                    var competence = key;
+                                                    if(key == "OTHER") {
+                                                        competence = "Outra entidade"
+                                                    }
+                                                    document.getElementById("iep8x").value = competence;
+                                                    document.getElementById("iep8x1P").value = result[key];
                                                     document.getElementById("iep8x").classList.remove("alerts-border");
+
+                                                    if (document.getElementById("iep8x1P").value < 0.5 || key != "ASAE") {
+                                                        document.getElementById("iep8x").classList.add("wrong-border");
+                                                        return;
+                                                    } else document.getElementById("iep8x").classList.add("correct-border");
+
+                                                    if (document.getElementById("i4w2ab1").value >= 0.1 && document.getElementById("iep8x1P").value >= 0.5) {
+                                                        if (submit == "Block") { // Unlock the button selected.
+                                                            document.getElementById(props.buttons).disabled = false;
+                                                            document.getElementById(props.buttons).style.backgroundColor = "#228B22";
+                                                            document.getElementById(props.buttons).style.cursor = "pointer";
+                                                        }
+                                                    }
                                                 })
                                         })
                                 }

@@ -421,6 +421,14 @@ select {
     animation-iteration-count: infinite;
 }
 
+.correct-border {
+    border-color: #228B22;
+}
+
+.wrong-border {
+    border-color: #DC143C;
+}
+
 @keyframes blink { 50% { border-color:#fff ; }  }
 
 @media (max-width: 1290px) {
