@@ -1267,6 +1267,7 @@
                             }
 
                             var listenerMultiLanguageClassify = function listenerMultiLanguageClassify() {
+                                this.style.borderColor = "#FFFF";
                                 if (this.value != "") { // Checks for text to classify.
 
                                     var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
@@ -1409,6 +1410,17 @@
                                                         value++;
                                                     });
                                                     $('#' + element).prop("disabled", false);
+                                                    $('#' + element).change(function () {
+                                                        var selected = $('#' + element).find(":selected").val();
+                                                        elements.forEach(function callback(el) {
+                                                            if (el != element) {
+                                                                $('#' + el + ' option').attr('selected', false);
+                                                                jQuery('#' + el + ' option[value=' + selected + ']').toggleOption(true);
+                                                                $('#' + el + ' option[value=' + selected + ']').attr('selected', 'selected');
+                                                                $('#' + el).val(selected);
+                                                            }
+                                                        });
+                                                    });
                                                     var usedNames = {};
                                                     $('#' + element + '> option').each(function () {
                                                         if (usedNames[this.text]) {
@@ -1416,15 +1428,6 @@
                                                         } else {
                                                             usedNames[this.text] = this.value;
                                                         }
-                                                    });
-                                                    $('#' + element).click(function () {
-                                                        var selected = $('#' + element).find(":selected").val();
-                                                        elements.forEach(function callback(el) {
-                                                            if (el != element) {
-                                                                jQuery('#' + el + ' option[value=' + selected + ']').toggleOption(true);
-                                                                $('#' + el + ' option[value=' + selected + ']').attr('selected', true);
-                                                            }
-                                                        });
                                                     });
                                                     sortSelect(document.getElementById(element));
                                                     $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
