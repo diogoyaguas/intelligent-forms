@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <span id="entities" style="display:none;"></span>
     <div class="container-contact100">
     </div>
     <div id="i3jcw" class="gjs-row">
@@ -1256,7 +1257,7 @@
                             var component = proxy(this);
 
                             if (this.fields == undefined) {
-                                var fields= [];
+                                var fields = [];
                                 var elements = ["iwud6", "idj2u", "CP-3", "idkef", "i9w3o", "iq8iiu"]
                                 elements.forEach(function callback(element, index) {
                                     fields.push($('#' + element));
@@ -1327,7 +1328,7 @@
 
                                             var locations = result.entities.location;
 
-                                            var list = JSON.parse(sessionStorage.getItem("list"));
+                                            var list = JSON.parse(document.getElementById("entities").operators);
                                             var headers = list.pop();
                                             var listLength = list.length;
 
@@ -1344,6 +1345,35 @@
                                                     }
                                                 }
                                             }
+
+                                            function sortSelect(selElem) {
+                                                var tmpAry = new Array();
+                                                for (var i = 0; i < selElem.options.length; i++) {
+                                                    tmpAry[i] = new Array();
+                                                    tmpAry[i][0] = selElem.options[i].text;
+                                                    tmpAry[i][1] = selElem.options[i].value;
+                                                }
+                                                tmpAry.sort();
+                                                while (selElem.options.length > 0) {
+                                                    selElem.options[0] = null;
+                                                }
+                                                for (var i = 0; i < tmpAry.length; i++) {
+                                                    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+                                                    selElem.options[i] = op;
+                                                }
+                                                return;
+                                            }
+
+                                            jQuery.fn.toggleOption = function (show) {
+                                                jQuery(this).toggle(show);
+                                                if (show) {
+                                                    if (jQuery(this).parent('span.toggleOption').length)
+                                                        jQuery(this).unwrap();
+                                                } else {
+                                                    if (jQuery(this).parent('span.toggleOption').length == 0)
+                                                        jQuery(this).wrap('<span class="toggleOption" style="display: none;" />');
+                                                }
+                                            };
 
                                             if (list.length == listLength) {
                                                 this.style.borderColor = "#DC143C";
@@ -1365,22 +1395,39 @@
                                                     $('#' + element)
                                                         .replaceWith(this[index][0]);
                                                     var replace = true;
+                                                    var value = 0;
                                                     list.forEach(function callback(item) {
-                                                        if (item[headers[index]] != "") {
-                                                            if (replace) {
-                                                                $('#' + element)
-                                                                    .replaceWith('<select id=' + element + ' name=' + headers[index] + '</select>');
-                                                                if (index <= 1)
-                                                                    $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
-                                                                replace = false;
-                                                            }
-                                                            $('#' + element).append('<option value="' + item[headers[index]] + '"> ' + item[headers[index]] + '</option>');
+                                                        if (replace) {
+                                                            $('#' + element)
+                                                                .replaceWith('<select id=' + element + ' name="' + headers[index] + '"></select>');
+                                                            if (index <= 1)
+                                                                $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
+                                                            replace = false;
                                                         }
+                                                        if (item[headers[index]] == "") item[headers[index]] = "Desconhecido"
+                                                        $('#' + element).append('<option value="' + value + '">' + item[headers[index]] + '</option>');
+                                                        value++;
                                                     });
                                                     $('#' + element).prop("disabled", false);
-                                                    $('#' + element + ' option').val(function (idx, val) {
-                                                        $(this).siblings('[value="' + val + '"]').remove();
+                                                    var usedNames = {};
+                                                    $('#' + element + '> option').each(function () {
+                                                        if (usedNames[this.text]) {
+                                                            jQuery(this).toggleOption(false);
+                                                        } else {
+                                                            usedNames[this.text] = this.value;
+                                                        }
                                                     });
+                                                    $('#' + element).click(function () {
+                                                        var selected = $('#' + element).find(":selected").val();
+                                                        elements.forEach(function callback(el) {
+                                                            if (el != element) {
+                                                                jQuery('#' + el + ' option[value=' + selected + ']').toggleOption(true);
+                                                                $('#' + el + ' option[value=' + selected + ']').attr('selected', true);
+                                                            }
+                                                        });
+                                                    });
+                                                    sortSelect(document.getElementById(element));
+                                                    $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
                                                 }, this.fields);
                                             }
                                         })
@@ -2206,7 +2253,7 @@
         $(document).ready(function () {
             $.ajax({
                 type: "GET",
-                url: "supermercados.csv",
+                url: "entidades.csv",
                 dataType: "text",
                 success: function (data) { processData(data); }
             });
@@ -2214,26 +2261,33 @@
 
         function processData(allText) {
             var allTextLines = allText.split(/\r\n|\n/);
-            var headers = allTextLines[0].split(',');
+            var headers = allTextLines[0].split(';');
             var lines = [];
 
             for (var i = 1; i < allTextLines.length; i++) {
-                var data = allTextLines[i].split(',');
+                var data = allTextLines[i].split(';');
                 if (data.length == headers.length) {
 
                     var tarr = {};
                     for (var j = 0; j < headers.length; j++) {
                         var header = headers[j];
-                        var content = data[j];
+                        if (header == "email")
+                            var content = data[j].toLowerCase().replace('"', '');
+                        else var content = capitalize(data[j]).replace('"', '');;
                         tarr[header] = content;
                     }
 
                     lines.push(tarr);
                 }
             }
+            console.log("Operators loaded")
             lines.push(headers);
-            sessionStorage.setItem("list", JSON.stringify(lines));
+            document.getElementById("entities").operators = JSON.stringify(lines);
         }
+
+        const capitalize = (str, lower = true) =>
+            (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
+        ;
     </script>
 </body>
 <html>
