@@ -55,8 +55,7 @@
                         </div>
                         <div class="wrap-input100 bg1">
                             <span class="label-input100">Morada*</span>
-                            <input type="text" name="morada" placeholder="Morada" id="imd43"
-                                class="input100" />
+                            <input type="text" name="morada" placeholder="Morada" id="imd43" class="input100" />
                         </div>
                         <div class="wrap-input100 bg1 rs1-wrap-input100-left">
                             <span class="label-input100">Código-Postal</span>
@@ -115,7 +114,7 @@
                             id="iep8x" class="input100" disabled />
                         <input type="hidden" id="iep8x1P">
                     </div>
-                    
+
                     <div class="bg1">
                         <button type="submit" id="i7022" class="submitButton">Enviar</button>
                     </div>
@@ -878,40 +877,40 @@
                                             if (document.getElementById("i4w2ab1").value < 0.1) {
                                                 document.getElementById("i4w2ab").classList.add("wrong-border");
                                             } else document.getElementById("i4w2ab").classList.add("correct-border");
+                                        })
 
-                                            fetch("http://10.227.107.138:8026/classify", {
-                                                "method": "POST",
-                                                "headers": {
-                                                    "Access-Control-Allow-Origin": "*",
-                                                    "Access-Control-Allow-Methods": "POST",
-                                                    "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
-                                                },
-                                                "body": JSON.stringify({ "text": this.value, "model": "/home/tro/server2/out/20210410_110610", "task": "competence_class" })
-                                            })
-                                                .then(response => response.json())
-                                                .then(result => {
-                                                    var key = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
-                                                    var competence = key;
-                                                    if (key == "OTHER") {
-                                                        competence = "Outra entidade"
-                                                    }
-                                                    document.getElementById("iep8x").value = competence;
-                                                    document.getElementById("iep8x1P").value = result[key];
-                                                    document.getElementById("iep8x").classList.remove("alerts-border");
+                                    fetch("http://10.227.107.138:8026/classify", {
+                                        "method": "POST",
+                                        "headers": {
+                                            "Access-Control-Allow-Origin": "*",
+                                            "Access-Control-Allow-Methods": "POST",
+                                            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+                                        },
+                                        "body": JSON.stringify({ "text": this.value, "model": "/home/tro/server2/out/20210410_110610", "task": "competence_class" })
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+                                            var key = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
+                                            var competence = key;
+                                            if (key == "OTHER") {
+                                                competence = "Outra entidade"
+                                            }
+                                            document.getElementById("iep8x").value = competence;
+                                            document.getElementById("iep8x1P").value = result[key];
+                                            document.getElementById("iep8x").classList.remove("alerts-border");
 
-                                                    if (document.getElementById("iep8x1P").value < 0.5 || key != "ASAE") {
-                                                        document.getElementById("iep8x").classList.add("wrong-border");
-                                                        return;
-                                                    } else document.getElementById("iep8x").classList.add("correct-border");
+                                            if (document.getElementById("iep8x1P").value < 0.5 || key != "ASAE") {
+                                                document.getElementById("iep8x").classList.add("wrong-border");
+                                                return;
+                                            } else document.getElementById("iep8x").classList.add("correct-border");
 
-                                                    if (document.getElementById("i4w2ab1").value >= 0.1 && document.getElementById("iep8x1P").value >= 0.5) {
-                                                        if (submit == "Block") { // Unlock the button selected.
-                                                            document.getElementById(props.buttons).disabled = false;
-                                                            document.getElementById(props.buttons).style.backgroundColor = "#228B22";
-                                                            document.getElementById(props.buttons).style.cursor = "pointer";
-                                                        }
-                                                    }
-                                                })
+                                            if (document.getElementById("i4w2ab1").value >= 0.1 && document.getElementById("iep8x1P").value >= 0.5) {
+                                                if (submit == "Block") { // Unlock the button selected.
+                                                    document.getElementById(props.buttons).disabled = false;
+                                                    document.getElementById(props.buttons).style.backgroundColor = "#228B22";
+                                                    document.getElementById(props.buttons).style.cursor = "pointer";
+                                                }
+                                            }
                                         })
                                 }
                             });
