@@ -874,7 +874,7 @@
                                             document.getElementById("i4w2ab1").value = result[key];
                                             document.getElementById("i4w2ab").classList.remove("alerts-border");
 
-                                            if (document.getElementById("i4w2ab1").value < 0.1) {
+                                            if (document.getElementById("i4w2ab1").value < 0.25) {
                                                 document.getElementById("i4w2ab").classList.add("wrong-border");
                                             } else document.getElementById("i4w2ab").classList.add("correct-border");
                                         })
@@ -904,7 +904,7 @@
                                                 return;
                                             } else document.getElementById("iep8x").classList.add("correct-border");
 
-                                            if (document.getElementById("i4w2ab1").value >= 0.1 && document.getElementById("iep8x1P").value >= 0.5) {
+                                            if (document.getElementById("i4w2ab1").value >= 0.25 && document.getElementById("iep8x1P").value >= 0.5) {
                                                 if (submit == "Block") { // Unlock the button selected.
                                                     document.getElementById(props.buttons).disabled = false;
                                                     document.getElementById(props.buttons).style.backgroundColor = "#228B22";
