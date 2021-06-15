@@ -89,8 +89,8 @@
                             data-tooltip-pos="right"
                             class="tooltip-component wrap-input100 bg1 rs1-wrap-input100-right">
                             <span class="label-input100">Local*</span>
-                            <input type="Text" name="localidade" placeholder="Local" id="idkef"
-                                classifier="Default" class="input100" disabled />
+                            <input type="Text" name="localidade" placeholder="Local" id="idkef" classifier="Default"
+                                class="input100" disabled />
                         </div>
                         <div class="label-input100">Descrição*</span>
                             <textarea type="text" name="descrição" placeholder="Descrição" id="text-1" required
@@ -120,8 +120,14 @@
                     </div>
                 </form>
 
-                <input type="hidden" id="threshold-1" value="0.1">
-                <input  type="hidden" id="threshold-2" value="0.5">
+                <div class="wrap-input100 bg1 rs1-wrap-input100-left threshold">
+                    <span class="label-input100">Threshold of economic activity</span>
+                    <input class="input100" type="number" id="threshold-1" value=0.1 min=0 max=1 step=0.01>
+                </div>
+                <div class="wrap-input100 bg1 rs1-wrap-input100-right threshold">
+                    <span class="label-input100">Threshold of competence</span>
+                    <input class="input100" type="number" id="threshold-2" value=0.5 min=0 max=1>
+                </div>
 
 
             </div>
@@ -876,7 +882,7 @@
                                             document.getElementById("i4w2ab").value = key;
                                             document.getElementById("i4w2ab1").value = result[key];
                                             document.getElementById("i4w2ab").classList.remove("alerts-border");
-                                            
+
                                             var thresholdActivity = +document.getElementById('threshold-1').value;
 
                                             if (document.getElementById("i4w2ab1").value < thresholdActivity) {
