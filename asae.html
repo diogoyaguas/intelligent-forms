@@ -120,6 +120,9 @@
                     </div>
                 </form>
 
+                <input type="hidden" id="threshold-1" value="0.1">
+                <input  type="hidden" id="threshold-2" value="0.5">
+
 
             </div>
         </div>
@@ -873,8 +876,10 @@
                                             document.getElementById("i4w2ab").value = key;
                                             document.getElementById("i4w2ab1").value = result[key];
                                             document.getElementById("i4w2ab").classList.remove("alerts-border");
+                                            
+                                            var thresholdActivity = +document.getElementById('threshold-1').value;
 
-                                            if (document.getElementById("i4w2ab1").value < 0.20) {
+                                            if (document.getElementById("i4w2ab1").value < thresholdActivity) {
                                                 document.getElementById("i4w2ab").classList.add("wrong-border");
                                             } else document.getElementById("i4w2ab").classList.add("correct-border");
                                         })
@@ -899,12 +904,15 @@
                                             document.getElementById("iep8x1P").value = result[key];
                                             document.getElementById("iep8x").classList.remove("alerts-border");
 
-                                            if (document.getElementById("iep8x1P").value < 0.5 || key != "ASAE") {
+                                            var thresholdActivity = +document.getElementById('threshold-1').value;
+                                            var thresholdCompetence = +document.getElementById('threshold-2').value;
+
+                                            if (document.getElementById("iep8x1P").value < thresholdCompetence || key != "ASAE") {
                                                 document.getElementById("iep8x").classList.add("wrong-border");
                                                 return;
                                             } else document.getElementById("iep8x").classList.add("correct-border");
 
-                                            if (document.getElementById("i4w2ab1").value >= 0.20 && document.getElementById("iep8x1P").value >= 0.5) {
+                                            if (document.getElementById("i4w2ab1").value >= thresholdActivity && document.getElementById("iep8x1P").value >= thresholdCompetence) {
                                                 if (submit == "Block") { // Unlock the button selected.
                                                     document.getElementById(props.buttons).disabled = false;
                                                     document.getElementById(props.buttons).style.backgroundColor = "#228B22";
