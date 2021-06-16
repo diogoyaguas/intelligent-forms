@@ -130,6 +130,10 @@ body {
     position: static;
 }
 
+#text-1 {
+    resize: vertical !important;
+}
+
 .wrap-input100.bg1.validate-input {
     text-align: left;
 }
