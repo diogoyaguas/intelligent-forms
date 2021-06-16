@@ -10,3 +10,5 @@ lib
 lib64
 *.pyc
 *.pyo
+validation/*
+node_modules/*
