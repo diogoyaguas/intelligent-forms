@@ -10,6 +10,7 @@
 
 <body>
     <span id="entities" style="display:none;"></span>
+    <span id="locations" style="display:none;"></span>
     <div class="container-contact100">
     </div>
     <div id="i3jcw" class="gjs-row">
@@ -1268,13 +1269,18 @@
 
                             var listenerMultiLanguageClassify = function listenerMultiLanguageClassify() {
                                 this.style.borderColor = "#FFFF";
+                                var elements = ["iwud6", "idj2u", "CP-3", "idkef", "i9w3o", "iq8iiu"]
+                                elements.forEach(function callback(element, index) {
+                                    $('#' + element)
+                                        .replaceWith(this[index][0]);
+                                }, this.fields);
                                 if (this.value != "") { // Checks for text to classify.
 
                                     var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
                                     var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
                                     url.search = new URLSearchParams(params).toString();
 
-                                    fetch(url, {
+                                    /*fetch(url, {
                                         "method": "GET",
                                         "headers": {
                                             "content-type": "application/json",
@@ -1294,9 +1300,7 @@
                                                     document.getElementById(props.buttons).style.cursor = "auto";
                                                 }
                                                 console.log("It was not possible to classify with the selected precision level");
-                                                /* ---------------- */
-                                                /* CHANGE CODE HERE */
-                                                /* ---------------- */
+
                                             } else if (confidence >= precision) { // The classification was  possible with the selected precision level.
                                                 if (submit == "Block") { // Unlock the button selected.
                                                     document.getElementById(props.buttons).disabled = false;
@@ -1304,15 +1308,13 @@
                                                     document.getElementById(props.buttons).style.cursor = "pointer";
                                                 }
                                                 console.log("It was possible to classify with the selected precision level");
-                                                /* ---------------- */
-                                                /* CHANGE CODE HERE */
-                                                /* ---------------- */
+
                                             }
                                         })
                                         .catch(err => {
                                             console.error(err);
                                         });
-
+                                    */
                                     var url = new URL("https://aylien-text.p.rapidapi.com/entities");
                                     var params = { text: this.value };
                                     url.search = new URLSearchParams(params).toString();
@@ -1330,109 +1332,13 @@
                                             var locations = result.entities.location;
 
                                             var list = JSON.parse(document.getElementById("entities").operators);
+                                            var locals = JSON.parse(document.getElementById("locations").locations);
                                             var headers = list.pop();
-                                            var listLength = list.length;
 
-                                            var elements = ["iwud6", "idj2u", "CP-3", "idkef", "i9w3o", "iq8iiu"]
+                                            var elements = ["iwud6", "idj2u", "CP-3", "idkef", "i9w3o", "iq8iiu"];
 
-                                            if (locations != undefined && locations.length != 0) {
-                                                for (var i = 0; i < locations.length; i++) {
-                                                    for (var j = 0; j < headers.length; j++) {
-                                                        if (headers[j] != "email")
-                                                            var temp = list.filter(el => el[headers[j]].toLowerCase().includes(locations[i].toLowerCase()));
-                                                        if (Array.isArray(temp) && temp.length != 0) {
-                                                            list = temp;
-                                                        }
-                                                    }
-                                                }
-                                            }
+                                            list = filterOperators.apply(this, [list, locations, locals, headers, elements]);
 
-                                            function sortSelect(selElem) {
-                                                var tmpAry = new Array();
-                                                for (var i = 0; i < selElem.options.length; i++) {
-                                                    tmpAry[i] = new Array();
-                                                    tmpAry[i][0] = selElem.options[i].text;
-                                                    tmpAry[i][1] = selElem.options[i].value;
-                                                }
-                                                tmpAry.sort();
-                                                while (selElem.options.length > 0) {
-                                                    selElem.options[0] = null;
-                                                }
-                                                for (var i = 0; i < tmpAry.length; i++) {
-                                                    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
-                                                    selElem.options[i] = op;
-                                                }
-                                                return;
-                                            }
-
-                                            jQuery.fn.toggleOption = function (show) {
-                                                jQuery(this).toggle(show);
-                                                if (show) {
-                                                    if (jQuery(this).parent('span.toggleOption').length)
-                                                        jQuery(this).unwrap();
-                                                } else {
-                                                    if (jQuery(this).parent('span.toggleOption').length == 0)
-                                                        jQuery(this).wrap('<span class="toggleOption" style="display: none;" />');
-                                                }
-                                            };
-
-                                            if (list.length == listLength) {
-                                                this.style.borderColor = "#DC143C";
-                                                elements.forEach(function callback(element) {
-                                                    document.getElementById(element).disabled = false;
-                                                });
-                                            } else if (list.length == 1) {
-                                                elements.forEach(function callback(element, index) {
-                                                    $('#' + element)
-                                                        .replaceWith(this[index][0]);
-                                                    document.getElementById(element).value = list[0][headers[index]];
-                                                    if (document.getElementById(element).value != "") {
-                                                        document.getElementById(element).style.borderColor = "#1E90FF"
-                                                    } else document.getElementById(element).disabled = false;
-                                                }, this.fields);
-
-                                            } else if (list.length > 1) {
-                                                elements.forEach(function callback(element, index) {
-                                                    $('#' + element)
-                                                        .replaceWith(this[index][0]);
-                                                    var replace = true;
-                                                    var value = 0;
-                                                    list.forEach(function callback(item) {
-                                                        if (replace) {
-                                                            $('#' + element)
-                                                                .replaceWith('<select id=' + element + ' name="' + headers[index] + '"></select>');
-                                                            if (index <= 1)
-                                                                $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
-                                                            replace = false;
-                                                        }
-                                                        if (item[headers[index]] == "") item[headers[index]] = "Desconhecido"
-                                                        $('#' + element).append('<option value="' + value + '">' + item[headers[index]] + '</option>');
-                                                        value++;
-                                                    });
-                                                    $('#' + element).prop("disabled", false);
-                                                    $('#' + element).change(function () {
-                                                        var selected = $('#' + element).find(":selected").val();
-                                                        elements.forEach(function callback(el) {
-                                                            if (el != element) {
-                                                                $('#' + el + ' option').attr('selected', false);
-                                                                jQuery('#' + el + ' option[value=' + selected + ']').toggleOption(true);
-                                                                $('#' + el + ' option[value=' + selected + ']').attr('selected', 'selected');
-                                                                $('#' + el).val(selected);
-                                                            }
-                                                        });
-                                                    });
-                                                    var usedNames = {};
-                                                    $('#' + element + '> option').each(function () {
-                                                        if (usedNames[this.text]) {
-                                                            jQuery(this).toggleOption(false);
-                                                        } else {
-                                                            usedNames[this.text] = this.value;
-                                                        }
-                                                    });
-                                                    sortSelect(document.getElementById(element));
-                                                    $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
-                                                }, this.fields);
-                                            }
                                         })
                                         .catch(err => {
                                             console.error(err);
@@ -2266,6 +2172,7 @@
             var allTextLines = allText.split(/\r\n|\n/);
             var headers = allTextLines[0].split(';');
             var lines = [];
+            var locations = [];
 
             for (var i = 1; i < allTextLines.length; i++) {
                 var data = allTextLines[i].split(';');
@@ -2276,21 +2183,198 @@
                         var header = headers[j];
                         if (header == "email")
                             var content = data[j].toLowerCase().replace('"', '');
-                        else var content = capitalize(data[j]).replace('"', '');;
+                        else var content = capitalize(data[j]).replace('"', '');
+                        if (header == "localidade") {
+                            locations.push(capitalize(data[j]).replace('"', ''));
+                        }
                         tarr[header] = content;
                     }
 
                     lines.push(tarr);
                 }
             }
+
             console.log("Operators loaded")
             lines.push(headers);
             document.getElementById("entities").operators = JSON.stringify(lines);
+            document.getElementById("locations").locations = JSON.stringify(locations);
         }
 
         const capitalize = (str, lower = true) =>
             (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
         ;
+    </script>
+    <script type="text/javascript">
+        function sortSelect(selElem) {
+            var tmpAry = new Array();
+            for (var i = 0; i < selElem.options.length; i++) {
+                tmpAry[i] = new Array();
+                tmpAry[i][0] = selElem.options[i].text;
+                tmpAry[i][1] = selElem.options[i].value;
+            }
+            tmpAry.sort();
+            while (selElem.options.length > 0) {
+                selElem.options[0] = null;
+            }
+            for (var i = 0; i < tmpAry.length; i++) {
+                var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+                selElem.options[i] = op;
+            }
+            return;
+        }
+
+        jQuery.fn.toggleOption = function (show) {
+            jQuery(this).toggle(show);
+            if (show) {
+                if (jQuery(this).parent('span.toggleOption').length)
+                    jQuery(this).unwrap();
+            } else {
+                if (jQuery(this).parent('span.toggleOption').length == 0)
+                    jQuery(this).wrap('<span class="toggleOption" style="display: none;" />');
+            }
+        };
+    </script>
+    <script type="text/javascript">
+        function filterOperators(list, locations, locals, headers, elements) {
+            var final = [];
+            var listLength = list.length;
+            if (locations != undefined && locations.length != 0) {
+                var search = ['localidade', 'nome', 'morada']
+                // Iterates all headers
+                for (var j = 0; j < search.length; j++) {
+
+                    // Only headers 'nome', 'morada' and 'localidade' can be iretared
+                    if (search[j] != "email" && search[j] != "telefone" && search[j] != "cp") {
+
+                        // Iterates all locations
+                        for (var i = 0; i < locations.length; i++) {
+
+                            // In header 'nome' doesn't look for 'localidades'
+                            if (search[j] == "nome" || search[j] == "morada") {
+                                if (locals.indexOf(locations[i]) != -1) {
+                                    continue;
+                                }
+                            }
+
+                            // Filter  all operators 
+                            if (search[j] != "localidade") {
+                                var temp = list.filter(el =>
+                                    el[search[j]].toLowerCase().includes(locations[i].toLowerCase())
+                                );
+                            } else {
+                                var temp = list.filter(el =>
+                                    el[search[j]].toLowerCase() == locations[i].toLowerCase()
+                                );
+                            }
+
+                            // If founded operators that match
+                            if (Array.isArray(temp) && temp.length != 0) {
+                                final = temp.slice();
+                            } else final = list;
+                        }
+                    }
+                    list = final.slice();
+                }
+            }
+            displayOptions.apply(this, [list, listLength, locations, locals, headers, elements]);
+        }
+
+        function displayOptions(list, listLength, locations, locals, headers, elements) {
+            if (list.length == listLength) {
+                this.style.borderColor = "#DC143C";
+                elements.forEach(function callback(element) {
+                    document.getElementById(element).disabled = false;
+                });
+            } else if (list.length == 1) {
+                elements.forEach(function callback(element, index) {
+                    $('#' + element)
+                        .replaceWith(this[index][0]);
+                    document.getElementById(element).value = list[0][headers[index]];
+                    if (document.getElementById(element).value != "") {
+                        document.getElementById(element).style.borderColor = "#1E90FF"
+                    } else document.getElementById(element).disabled = false;
+                }, this.fields);
+
+            } else if (list.length > 1) {
+                elements.forEach(function callback(element, index) {
+                    $('#' + element)
+                        .replaceWith(this[index][0]);
+                    var replace = true;
+                    var value = 0;
+                    list.forEach(function callback(item) {
+                        if (replace) {
+                            $('#' + element)
+                                .replaceWith('<select id=' + element + ' name="' + headers[index] + '"></select>');
+                            if (index <= 1)
+                                $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
+                            replace = false;
+                        }
+                        if (item[headers[index]] == "") item[headers[index]] = "Desconhecido";
+                        if (headers[index] != 'localidade') {
+                            $('#' + element).append('<option value="' + value + '-' + item['localidade'] + '">' + item[headers[index]] + '</option>');
+                            value++;
+                        } else {
+                            var optionExists = ($('#' + element + ' option[value="' + item['localidade'] + '"]').length > 0);
+                            if (!optionExists)
+                                $('#' + element).append('<option value="' + item['localidade'] + '">' + item[headers[index]] + '</option>');
+                        }
+                    });
+                    $('#' + element).prop("disabled", false);
+                    if (element != "idkef") {
+                        $('#' + element).change(function () {
+                            var selected = $('#' + element).find(":selected").val();
+                            elements.forEach(function callback(el) {
+                                if (el != element) {
+                                    $('#' + el + ' option').attr('selected', false);
+                                    if (el != "idkef") {
+                                        $('#' + el + ' option[value="' + selected + '"]').toggleOption(true);
+                                        $('#' + el + ' option[value="' + selected + '"]').attr('selected', 'selected');
+                                        $('#' + el).val(selected);
+                                    } else {
+                                        var location = selected.split("-")[1];
+                                        $('#' + el + ' option[value="' + location + '"]').attr('selected', 'selected');
+                                        $('#' + el).val(location);
+                                    }
+
+                                }
+                            });
+                        });
+                    } else {
+                        $('#idkef').change(function () {
+                            var selected = $('#' + element).find(":selected").val();
+                            elements.forEach(function callback(el) {
+                                if (el != "idkef") {
+                                    var options = $('#' + el + ' option').each(function () {
+                                        var value = this.value;
+                                        $('#' + el + ' option[value="' + value + '"]').toggleOption(true);
+                                        if (!(value.includes(selected)) && value != "undefined" && selected != "undefined") {
+                                            $('#' + el + ' option[value="' + value + '"]').toggleOption(false);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    }
+                    var usedNames = {};
+                    $('#' + element + '> option').each(function () {
+                        if (usedNames[this.text]) {
+                            //jQuery(this).toggleOption(false);
+                        } else {
+                            usedNames[this.text] = this.value;
+                        }
+                    });
+                    sortSelect(document.getElementById(element));
+                    $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
+                }, this.fields);
+            }
+        }
+
+        function filterAgain(element, list, locations, locals, listLength, headers, elements) {
+            var selected = $('#' + element).find(":selected").text();
+            var newLocations = locations.slice();
+            newLocations.push(selected);
+            var newList = filterOperators(list, newLocations, locals);
+        }
     </script>
 </body>
 <html>
