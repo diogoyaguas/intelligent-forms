@@ -37,13 +37,14 @@ def classify():
                 classes = {idx: value for idx, value in enumerate(
                     label_vectorizer.classes_)}
                 y_predict_proba = x.predict_proba(vectorizer.transform([text]))
-                print(y_predict_proba[0])
+                print(y_predict_proba)
                 res = [dict(zip_longest(classes, probs))
                        for probs in y_predict_proba][0]
         else:
             classes = {idx: value for idx, value in enumerate(
                 label_vectorizer.classes_)}
             y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
+            print(y_predict_proba)
             res = [dict(zip_longest(classes, probs))
                 for probs in y_predict_proba][0]
 
