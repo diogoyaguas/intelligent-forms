@@ -48,6 +48,7 @@ def classify():
             print(y_predict_proba)
             res = [dict(zip_longest(classes, probs))
                 for probs in y_predict_proba][0]
+            print(res)
 
         for key in range(len(res)):
             res[classes[key]] = res.pop(key)
