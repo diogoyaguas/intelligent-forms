@@ -37,7 +37,7 @@ def classify():
             for x in clf.estimators_:
                 print("HEY")
                 print(x)
-                y_predict_proba = x.predict_proba(vectorizer.transform(text))
+                y_predict_proba = x.predict_proba(vectorizer.transform([text]))
                 print(y_predict_proba)
         else:    
             classes = {idx: value for idx, value in enumerate(
