@@ -38,7 +38,7 @@ def classify():
                     label_vectorizer.classes_)}
                 y_predict_proba = x.predict_proba(vectorizer.transform([text]))
                 print(y_predict_proba[0])
-                print(type(y_predict_proba[0]))
+                print(y_predict_proba[0].item(1))
                 res = [dict(zip_longest(classes, probs))
                        for probs in y_predict_proba][0]
         else:
