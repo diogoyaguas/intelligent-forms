@@ -31,10 +31,9 @@ def classify():
 
         with open(f"{model_name}/{task}/model/svm.pkl", "rb") as input_file:
             clf = pickle.load(input_file)
-
-        if model_name == "/home/tro/server/out/20210616_103813":
-            for x in clf.estimators_:
-                print(clf.predict_proba(x))
+        
+        if(model_name == "/home/tro/server/out/20210616_103813"):
+            print(clf.estimators_)
 
         classes = {idx: value for idx, value in enumerate(
             label_vectorizer.classes_)}
