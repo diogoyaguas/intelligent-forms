@@ -51,11 +51,12 @@
                         </span>
                         <div class="wrap-input100 bg1">
                             <span class="label-input100">Nome*</span>
-                            <input type="Text" name="name" placeholder="Nome" id="icyd7" class="input100" required/>
+                            <input type="Text" name="name" placeholder="Nome" id="icyd7" class="input100" required />
                         </div>
                         <div class="wrap-input100 bg1">
                             <span class="label-input100">Morada*</span>
-                            <input type="text" name="morada" placeholder="Morada" id="imd43" class="input100" required/>
+                            <input type="text" name="morada" placeholder="Morada" id="imd43" class="input100"
+                                required />
                         </div>
                         <div class="wrap-input100 bg1 rs1-wrap-input100-left">
                             <span class="label-input100">Código-Postal</span>
@@ -65,7 +66,7 @@
                         <div class="wrap-input100 bg1 rs1-wrap-input100-right" id="iq8gu">
                             <span class="label-input100">Localidade*</span>
                             <input type="Text" name="localidade" placeholder="Localidade" classifier="Default"
-                                id="illg3" class="input100" required/>
+                                id="illg3" class="input100" required />
                         </div>
                         <div class="wrap-input100 bg1 rs1-wrap-input100-left">
                             <span class="label-input100">Telefone</span>
@@ -215,7 +216,16 @@
 
                         case "Custom":
 
+                            if (this.fields == undefined) {
+                                var fields = [];
+                                fields.push($('#i4w2ab'));
+                                this.fields = fields;
+                            }
+
                             this.addEventListener("blur", function () {
+                                $('#i4w2ab')
+                                    .replaceWith(this.fields[0]);
+                                $('#i4w2ab').val("");
                                 if (this.value != "") { // Checks for text to classify.
 
                                     document.getElementById("i4w2ab").classList.remove("wrong-border");
