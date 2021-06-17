@@ -1273,6 +1273,7 @@
                                 elements.forEach(function callback(element, index) {
                                     $('#' + element)
                                         .replaceWith(this[index][0]);
+                                    $('#' + element).val("");
                                 }, this.fields);
                                 if (this.value != "") { // Checks for text to classify.
 
@@ -2280,58 +2281,80 @@
         }
 
         function displayOptions(list, listLength, locations, locals, headers, elements) {
-            if (list.length == listLength) {
+            if (list.length == listLength) { // List was not filtered
                 this.style.borderColor = "#DC143C";
                 elements.forEach(function callback(element) {
                     document.getElementById(element).disabled = false;
                 });
-            } else if (list.length == 1) {
+            } else if (list.length == 1) { // List has been filtered up to 1 element
                 elements.forEach(function callback(element, index) {
+                    // Replaces with original elements
                     $('#' + element)
                         .replaceWith(this[index][0]);
+
+                    // Insert filtered values
                     document.getElementById(element).value = list[0][headers[index]];
                     if (document.getElementById(element).value != "") {
                         document.getElementById(element).style.borderColor = "#1E90FF"
-                    } else document.getElementById(element).disabled = false;
+                    } else document.getElementById(element).disabled = false; // Allows the user to manually enter in case there is no value
                 }, this.fields);
 
-            } else if (list.length > 1) {
+            } else if (list.length > 1) { // List has been filtered with more than 1 element
                 elements.forEach(function callback(element, index) {
+
+                    // Replaces with original elements
                     $('#' + element)
                         .replaceWith(this[index][0]);
                     var replace = true;
                     var value = 0;
+
+                    // Run through the list and enter the options
                     list.forEach(function callback(item) {
-                        if (replace) {
-                            $('#' + element)
-                                .replaceWith('<select id=' + element + ' name="' + headers[index] + '"></select>');
-                            if (index <= 1)
-                                $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
-                            replace = false;
+                        if (element != "i9w3o" && element != "iq8iiu") {
+                            // Replaces elements with drop-downs
+                            if (replace) {
+                                $('#' + element)
+                                    .replaceWith('<select id=' + element + ' name="' + headers[index] + '"></select>');
+                                if (index <= 1)
+                                    $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
+                                replace = false;
+
+                            }
                         }
-                        if (item[headers[index]] == "") item[headers[index]] = "Desconhecido";
+                        // Populate options with their values
+                        if (item[headers[index]] == "") item[headers[index]] = "Desconhecido"; // If there is no value, replace with unknown
                         if (headers[index] != 'localidade') {
                             $('#' + element).append('<option value="' + value + '-' + item['localidade'] + '">' + item[headers[index]] + '</option>');
                             value++;
-                        } else {
+                        } else { // 'Localidade' value is different from other fields
                             var optionExists = ($('#' + element + ' option[value="' + item['localidade'] + '"]').length > 0);
-                            if (!optionExists)
+                            if (!optionExists) // Add only one 'Localidade'
                                 $('#' + element).append('<option value="' + item['localidade'] + '">' + item[headers[index]] + '</option>');
                         }
+
                     });
+                    // Enable fields
                     $('#' + element).prop("disabled", false);
+
+                    // Adds the event that allows to auto-select the remaining fields
                     if (element != "idkef") {
                         $('#' + element).change(function () {
-                            var selected = $('#' + element).find(":selected").val();
+                            var selected = $('#' + element).find(":selected").val(); // Selected value
                             elements.forEach(function callback(el) {
                                 if (el != element) {
                                     $('#' + el + ' option').attr('selected', false);
-                                    if (el != "idkef") {
+                                    if (el == "i9w3o" || el == "iq8iiu") { // Element 'Telefone' or 'Email'
+                                        var option = $('#' + el + ' option[value="' + selected + '"]');
+                                        $('#' + el).val(option.text());
+                                    } else if (el != "idkef") { // Select option with the same value in the remaining fields except in the field 'Localidade'
                                         $('#' + el + ' option[value="' + selected + '"]').toggleOption(true);
                                         $('#' + el + ' option[value="' + selected + '"]').attr('selected', 'selected');
                                         $('#' + el).val(selected);
-                                    } else {
-                                        var location = selected.split("-")[1];
+                                    } else { // Select option with the same value in the 'Localidade' Field
+                                        var location = selected;
+                                        if (selected != "undefined") {
+                                            location = selected.split("-")[1];
+                                        }
                                         $('#' + el + ' option[value="' + location + '"]').attr('selected', 'selected');
                                         $('#' + el).val(location);
                                     }
@@ -2339,7 +2362,7 @@
                                 }
                             });
                         });
-                    } else {
+                    } else { // If the user selects a location, it filters the remaining fields 
                         $('#idkef').change(function () {
                             var selected = $('#' + element).find(":selected").val();
                             elements.forEach(function callback(el) {
@@ -2355,6 +2378,7 @@
                             });
                         });
                     }
+                    /*
                     var usedNames = {};
                     $('#' + element + '> option').each(function () {
                         if (usedNames[this.text]) {
@@ -2362,9 +2386,11 @@
                         } else {
                             usedNames[this.text] = this.value;
                         }
-                    });
-                    sortSelect(document.getElementById(element));
-                    $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
+                    });*/
+                    if (element != "i9w3o" && element != "iq8iiu") {
+                        sortSelect(document.getElementById(element));
+                        $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
+                    }
                 }, this.fields);
             }
         }
