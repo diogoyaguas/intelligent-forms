@@ -1,5 +1,6 @@
 import pickle
 import json
+import numpy as np
 from itertools import zip_longest
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
@@ -33,14 +34,15 @@ def classify():
             clf = pickle.load(input_file)
 
         if(model_name == "/home/tro/server/out/20210616_103813"):
+            values = np.array([])
             for x in clf.estimators_:
                 classes = {idx: value for idx, value in enumerate(
                     label_vectorizer.classes_)}
                 y_predict_proba = x.predict_proba(vectorizer.transform([text]))
-                print(y_predict_proba[0])
-                print(y_predict_proba[0].item(1))
-                res = [dict(zip_longest(classes, probs))
-                       for probs in y_predict_proba][0]
+                values = np.append(values, y_predict_proba[0].item(1))
+            print(values)
+            res = [dict(zip_longest(classes, probs))
+                    for probs in y_predict_proba][0]
         else:
             classes = {idx: value for idx, value in enumerate(
                 label_vectorizer.classes_)}
