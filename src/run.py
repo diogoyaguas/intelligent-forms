@@ -32,21 +32,21 @@ def classify():
         with open(f"{model_name}/{task}/model/svm.pkl", "rb") as input_file:
             clf = pickle.load(input_file)
 
-        if(model_name == "/home/tro/server/out/20210616_103813"):
-            for x in clf.estimators_:
-                classes = {idx: value for idx, value in enumerate(
-                    label_vectorizer.classes_)}
-                y_predict_proba = x.predict_proba(vectorizer.transform([text]))
-                print(y_predict_proba)
-                res = [dict(zip_longest(classes, probs))
-                       for probs in y_predict_proba][0]
-        else:
-            classes = {idx: value for idx, value in enumerate(
-                label_vectorizer.classes_)}
-            y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
-            print(y_predict_proba)
-            res = [dict(zip_longest(classes, probs))
-                for probs in y_predict_proba][0]
+        # if(model_name == "/home/tro/server/out/20210616_103813"):
+        #    for x in clf.estimators_:
+        #        classes = {idx: value for idx, value in enumerate(
+        #            label_vectorizer.classes_)}
+        #        y_predict_proba = x.predict_proba(vectorizer.transform([text]))
+        #        print(y_predict_proba)
+        #        res = [dict(zip_longest(classes, probs))
+        #               for probs in y_predict_proba][0]
+        # else:
+        classes = {idx: value for idx, value in enumerate(
+            label_vectorizer.classes_)}
+        y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
+        print(y_predict_proba)
+        res = [dict(zip_longest(classes, probs))
+               for probs in y_predict_proba][0]
 
         for key in range(len(res)):
             res[classes[key]] = res.pop(key)
