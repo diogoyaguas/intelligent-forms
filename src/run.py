@@ -33,20 +33,22 @@ def classify():
             clf = pickle.load(input_file)
 
         if(model_name == "/home/tro/server/out/20210616_103813"):
-            print(clf.estimators_)
             for x in clf.estimators_:
-                print("HEY")
-                print(x)
+                classes = {idx: value for idx, value in enumerate(
+                    label_vectorizer.classes_)}
                 y_predict_proba = x.predict_proba(vectorizer.transform([text]))
-                print(y_predict_proba)
-
-        classes = {idx: value for idx, value in enumerate(
-            label_vectorizer.classes_)}
-        y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
-        res = [dict(zip_longest(classes, probs))
-               for probs in y_predict_proba][0]
-        for key in range(len(res)):
-            res[classes[key]] = res.pop(key)
+                res = [dict(zip_longest(classes, probs))
+                       for probs in y_predict_proba][0]
+                for key in range(len(res)):
+                    res[classes[key]] = res.pop(key)
+        else:
+            classes = {idx: value for idx, value in enumerate(
+                label_vectorizer.classes_)}
+            y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
+            res = [dict(zip_longest(classes, probs))
+                for probs in y_predict_proba][0]
+            for key in range(len(res)):
+                res[classes[key]] = res.pop(key)
 
         print(res)
         return res
