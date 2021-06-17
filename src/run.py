@@ -21,7 +21,6 @@ def classify():
         model_name = req.get('model')
         task = req.get('task')
 
-        print(model_name)
         print(task)
 
         with open(f"{model_name}/{task}/model/vectorizer.pkl", "rb") as input_file:
@@ -41,7 +40,6 @@ def classify():
                 y_predict_proba = x.predict_proba(vectorizer.transform([text]))
                 values = np.append(values, y_predict_proba[0].item(1))
             probabilities = np.array([values])
-            print(probabilities)
             res = [dict(zip_longest(classes, probs))
                     for probs in probabilities][0]
         else:
