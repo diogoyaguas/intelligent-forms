@@ -39,20 +39,17 @@ def classify():
                 classes = {idx: value for idx, value in enumerate(
                     label_vectorizer.classes_)}
                 y_predict_proba = x.predict_proba(vectorizer.transform([text]))
-                print(type(y_predict_proba))
                 values = np.append(values, y_predict_proba[0].item(1))
-            values = np.array(values)
-            print(values)
+            probabilities = np.array([values])
+            print(probabilities)
             res = [dict(zip_longest(classes, probs))
-                    for probs in values][0]
+                    for probs in probabilities][0]
         else:
             classes = {idx: value for idx, value in enumerate(
                 label_vectorizer.classes_)}
             y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
-            print(type(y_predict_proba))
             res = [dict(zip_longest(classes, probs))
                 for probs in y_predict_proba][0]
-            print(res)
 
         for key in range(len(res)):
             res[classes[key]] = res.pop(key)
