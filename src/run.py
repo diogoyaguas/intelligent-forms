@@ -34,9 +34,10 @@ def classify():
         
         if(model_name == "/home/tro/server/out/20210616_103813"):
             print(clf.estimators_)
-            for x in clf.estimators:
+            for x in clf.estimators_:
                 print("HEY")
-                y_predict_proba = clf.predict_proba(x)
+                print(x)
+                y_predict_proba = x.predict_proba(vectorizer.transform(text))
                 print(y_predict_proba)
         else:    
             classes = {idx: value for idx, value in enumerate(
