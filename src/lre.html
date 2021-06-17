@@ -9,11 +9,10 @@
 </head>
 
 <body>
+    <div id="loader" class="loader"></div>
     <span id="entities" style="display:none;"></span>
     <span id="locations" style="display:none;"></span>
-    <div class="container-contact100">
-    </div>
-    <div id="i3jcw" class="gjs-row">
+    <div id="i3jcw" class="gjs-row loading">
         <div id="ii2vh" class="gjs-cell">
         </div>
         <div class="gjs-cell">
@@ -81,32 +80,32 @@
                         </span>
                         <div class="wrap-input100 bg1 validate-input">
                             <span class="label-input100">Nome*</span>
-                            <input type="Text" name="name" placeholder="Nome" id="iwud6" required class="input100"
-                                disabled />
+                            <input type="Text" name="name" placeholder="Nome" id="iwud6" required
+                                class="input100 required" disabled />
                         </div>
                         <div class="wrap-input100 bg1 validate-input">
                             <span class="label-input100">Morada*</span>
-                            <input type="text" name="morada" placeholder="Morada" id="idj2u" required class="input100"
-                                disabled />
+                            <input type="text" name="morada" placeholder="Morada" id="idj2u" required
+                                class="input100 required" disabled />
                         </div>
                         <div class="wrap-input100 bg1 rs1-wrap-input100-left">
                             <span class="label-input100">Código-Postal</span>
                             <input type="Text" name="CP" placeholder="Código Postal" inputmode="numeric" id="CP-3"
-                                pattern="\d{4}([ -]\d{3})?" class="input100" disabled />
+                                pattern="\d{4}([ -]\d{3})?" class="input100 required" disabled />
                         </div>
 
                         <div class="wrap-input100 bg1 rs1-wrap-input100-right">
                             <span class="label-input100">Localidade*</span>
                             <input type="Text" name="localidade" placeholder="Localidade" id="idkef" required
-                                classifier="Default" class="input100" disabled />
+                                classifier="Default" class="input100 required" disabled />
                         </div>
                         <div class="wrap-input100 bg1 rs1-wrap-input100-left"><span
                                 class="label-input100">Telefone</span>
                             <input type="Text" name="phone" placeholder="Telefone" maxlength="9" id="i9w3o"
-                                class="input100" disabled />
+                                class="input100 required" disabled />
                         </div>
                         <div class="wrap-input100 bg1 rs1-wrap-input100-right"><span class="label-input100">Email</span>
-                            <input type="Email" name="email" placeholder="Email" id="iq8iiu" class="input100"
+                            <input type="Text" name="email" placeholder="Email" id="iq8iiu" class="input100 required"
                                 disabled />
                         </div>
                         <div class="bg1 validate-input">
@@ -392,6 +391,8 @@
                                                                     document.getElementById("i7022").style.cursor = "auto";
                                                                     console.log("The model was unable to verify that the information provided in the select is consistent. Please rewrite.");
                                                                 }
+
+                                                                verifySubmit();
 
                                                             }
                                                             /* ---------------- */
@@ -1277,45 +1278,6 @@
                                 }, this.fields);
                                 if (this.value != "") { // Checks for text to classify.
 
-                                    var url = new URL("https://entity-and-sentiment-extractor.p.rapidapi.com/top_sentiment_sentences");
-                                    var params = { text: this.value, content_type: "plain_text", lang_code: props.language };
-                                    url.search = new URLSearchParams(params).toString();
-
-                                    /*fetch(url, {
-                                        "method": "GET",
-                                        "headers": {
-                                            "content-type": "application/json",
-                                            "x-rapidapi-key": "dfa92615famsh37ca4b4a83d79a0p1e5dc7jsnfddef2b33466",
-                                            "x-rapidapi-host": "entity-and-sentiment-extractor.p.rapidapi.com"
-                                        }
-                                    })
-                                        .then(response => response.json())
-                                        .then(result => {
-
-                                            var confidence = Math.abs(result.document_sentiment.doc_sentiment_score);
-
-                                            if (confidence < precision) { // The classification was not possible with the selected precision level.
-                                                if (submit == "Block") { // Block the button selected.
-                                                    document.getElementById(props.buttons).disabled = true;
-                                                    document.getElementById(props.buttons).style.backgroundColor = "#696969";
-                                                    document.getElementById(props.buttons).style.cursor = "auto";
-                                                }
-                                                console.log("It was not possible to classify with the selected precision level");
-
-                                            } else if (confidence >= precision) { // The classification was  possible with the selected precision level.
-                                                if (submit == "Block") { // Unlock the button selected.
-                                                    document.getElementById(props.buttons).disabled = false;
-                                                    document.getElementById(props.buttons).style.backgroundColor = "#228B22";
-                                                    document.getElementById(props.buttons).style.cursor = "pointer";
-                                                }
-                                                console.log("It was possible to classify with the selected precision level");
-
-                                            }
-                                        })
-                                        .catch(err => {
-                                            console.error(err);
-                                        });
-                                    */
                                     var url = new URL("https://aylien-text.p.rapidapi.com/entities");
                                     var params = { text: this.value };
                                     url.search = new URLSearchParams(params).toString();
@@ -1352,28 +1314,6 @@
                             break;
                         case "Custom":
 
-                            /* -------------------------------------------------------
-                            this.addEventListener("blur", function () {
-                               if (this.value != "") { // Checks for text to classify.
-                  
-                                var url = new URL(<-- INSERT URL FOR API -->);
-                                var params = { <-- INSERT PARAMETERS --> };
-                                url.search = new URLSearchParams(params).toString();
-                  
-                                fetch(url, {
-                                  "method": <-- INSERT METHOD -->,
-                                  "headers": { <-- INSERT HEADERS --> }
-                                })
-                                  .then(response => response.json())
-                                  .then(result => {
-                                    <-- INSERT CODE TO HANDLE THE RESULT -->
-                                  })
-                                  .catch(err => {
-                                    console.error(err);
-                                  });
-                              }
-                            });
-                            ------------------------------------------------------------*/
                             break;
 
                     }
@@ -2199,6 +2139,8 @@
             lines.push(headers);
             document.getElementById("entities").operators = JSON.stringify(lines);
             document.getElementById("locations").locations = JSON.stringify(locations);
+            document.getElementById("i3jcw").classList.remove("loading");
+            document.getElementById("loader").classList.add("loading")
         }
 
         const capitalize = (str, lower = true) =>
@@ -2291,6 +2233,7 @@
                     // Replaces with original elements
                     $('#' + element)
                         .replaceWith(this[index][0]);
+                    $('#' + element).val("");
 
                     // Insert filtered values
                     document.getElementById(element).value = list[0][headers[index]];
@@ -2305,6 +2248,7 @@
                     // Replaces with original elements
                     $('#' + element)
                         .replaceWith(this[index][0]);
+                    $('#' + element).val("");
                     var replace = true;
                     var value = 0;
 
@@ -2314,7 +2258,7 @@
                             // Replaces elements with drop-downs
                             if (replace) {
                                 $('#' + element)
-                                    .replaceWith('<select id=' + element + ' name="' + headers[index] + '"></select>');
+                                    .replaceWith('<select class="required" id=' + element + ' name="' + headers[index] + '"></select>');
                                 if (index <= 1)
                                     $('#' + element).parent().attr("class", "wrap-input100 input100-select bg1");
                                 replace = false;
@@ -2324,7 +2268,7 @@
                         // Populate options with their values
                         if (item[headers[index]] == "") item[headers[index]] = "Desconhecido"; // If there is no value, replace with unknown
                         if (headers[index] != 'localidade') {
-                            $('#' + element).append('<option value="' + value + '-' + item['localidade'] + '">' + item[headers[index]] + '</option>');
+                            $('#' + element).append('<option value="' + value + '$' + item['localidade'] + '">' + item[headers[index]] + '</option>');
                             value++;
                         } else { // 'Localidade' value is different from other fields
                             var optionExists = ($('#' + element + ' option[value="' + item['localidade'] + '"]').length > 0);
@@ -2353,14 +2297,14 @@
                                     } else { // Select option with the same value in the 'Localidade' Field
                                         var location = selected;
                                         if (selected != "undefined") {
-                                            location = selected.split("-")[1];
+                                            location = selected.split("$")[1];
                                         }
                                         $('#' + el + ' option[value="' + location + '"]').attr('selected', 'selected');
                                         $('#' + el).val(location);
                                     }
-
                                 }
                             });
+                            verifySubmit();
                         });
                     } else { // If the user selects a location, it filters the remaining fields 
                         $('#idkef').change(function () {
@@ -2378,15 +2322,6 @@
                             });
                         });
                     }
-                    /*
-                    var usedNames = {};
-                    $('#' + element + '> option').each(function () {
-                        if (usedNames[this.text]) {
-                            //jQuery(this).toggleOption(false);
-                        } else {
-                            usedNames[this.text] = this.value;
-                        }
-                    });*/
                     if (element != "i9w3o" && element != "iq8iiu") {
                         sortSelect(document.getElementById(element));
                         $('#' + element).prepend('<option value="undefined" selected="selected"> Por favor selecione uma opção </option>');
@@ -2400,6 +2335,26 @@
             var newLocations = locations.slice();
             newLocations.push(selected);
             var newList = filterOperators(list, newLocations, locals);
+        }
+    </script>
+    <script>
+        function verifySubmit() {
+            var empty = false;
+            $('.required').each(function () {
+                if ($(this).val() == '' || $(this).val() == "undefined") {
+                    empty = true;
+                }
+            });
+
+            if (empty) {
+                $('#i7022').attr('disabled', 'disabled');
+                document.getElementById("i7022").style.backgroundColor = "#696969";
+                document.getElementById("i7022").style.cursor = "auto";
+            } else {
+                $('#i7022').removeAttr('disabled');
+                document.getElementById("i7022").style.backgroundColor = "#228B22";
+                document.getElementById("i7022").style.cursor = "pointer";
+            }
         }
     </script>
 </body>

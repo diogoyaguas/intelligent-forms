@@ -128,7 +128,6 @@ body {
     resize: vertical !important;
 }
 
-
 .wrap-input100.bg1.validate-input {
     text-align: left;
 }
@@ -228,7 +227,7 @@ body {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 25px;
     font-weight: 900;
-    background-color: rgb(122, 122, 122);
+    background-color: #696969;
     color: rgb(255, 255, 255);
     border-top-width: 2px;
     border-right-width: 2px;
@@ -387,8 +386,53 @@ select {
     width: 100%;
 }
 
-@media (max-width: 1290px) {
+.loader {
+    width: 70px;
+    height: 70px;
+    background-color: #333;
+    margin: 100px auto;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
 
+.loading {
+    display: none;
+}
+
+@-webkit-keyframes sk-rotateplane {
+    0% {
+        -webkit-transform: perspective(120px)
+    }
+    50% {
+        -webkit-transform: perspective(120px) rotateY(180deg)
+    }
+    100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+    }
+}
+
+@keyframes sk-rotateplane {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+    }
+    50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    }
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+
+@media (max-width: 1290px) {
     .wrap-input100.bg1.rs1-wrap-input100-right {
         margin-top: 0px;
         margin-right: 0px;
@@ -402,7 +446,6 @@ select {
         padding-left: 5px;
         padding: 0 0 0 0;
     }
-
     .wrap-input100.bg1.rs1-wrap-input100-left {
         width: 45%;
         display: inline-block;
@@ -438,4 +481,3 @@ select {
         bottom: auto;
     }
 }
-
