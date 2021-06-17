@@ -34,14 +34,18 @@ def classify():
         
         if(model_name == "/home/tro/server/out/20210616_103813"):
             print(clf.estimators_)
-
-        classes = {idx: value for idx, value in enumerate(
-            label_vectorizer.classes_)}
-        y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
-        res = [dict(zip_longest(classes, probs))
-               for probs in y_predict_proba][0]
-        for key in range(len(res)):
-            res[classes[key]] = res.pop(key)
+            for x in clf.estimators:
+                print("HEY")
+                y_predict_proba = clf.predict_proba(x)
+                print(y_predict_proba)
+        else:    
+            classes = {idx: value for idx, value in enumerate(
+                label_vectorizer.classes_)}
+            y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
+            res = [dict(zip_longest(classes, probs))
+                for probs in y_predict_proba][0]
+            for key in range(len(res)):
+                res[classes[key]] = res.pop(key)
 
         print(res)
         return res
