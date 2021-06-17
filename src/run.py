@@ -32,6 +32,9 @@ def classify():
         with open(f"{model_name}/{task}/model/svm.pkl", "rb") as input_file:
             clf = pickle.load(input_file)
 
+        for x in clf.estimators_:
+            print(clf.predict_proba(x))
+
         classes = {idx: value for idx, value in enumerate(label_vectorizer.classes_)}
         y_predict_proba = clf.predict_proba(vectorizer.transform([text]))
         res = [dict(zip_longest(classes, probs)) for probs in y_predict_proba][0]

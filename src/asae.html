@@ -866,11 +866,11 @@
                                             "Access-Control-Allow-Methods": "POST",
                                             "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
                                         },
-                                        "body": JSON.stringify({ "text": this.value, "model": "/home/tro/server/out/20210502_094240", "task": "economic_class" })
+                                        "body": JSON.stringify({ "text": this.value, "model": "/home/tro/server/out/20210616_103813", "task": "economic_class" })
                                     })
                                         .then(response => response.json())
                                         .then(result => {
-
+                                            console.log(result);
                                             var key = Object.keys(result).reduce((a, b) => result[a] > result[b] ? a : b);
                                             document.getElementById("i4w2ab").value = key;
                                             document.getElementById("i4w2ab1").value = result[key];
