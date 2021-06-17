@@ -42,7 +42,7 @@ def classify():
                 values = np.append(values, y_predict_proba[0].item(1))
             print(values)
             res = [dict(zip_longest(classes, probs))
-                    for probs in y_predict_proba][0]
+                    for probs in values][0]
         else:
             classes = {idx: value for idx, value in enumerate(
                 label_vectorizer.classes_)}
