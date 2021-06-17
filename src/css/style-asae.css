@@ -512,3 +512,9 @@ select {
         bottom: auto;
     }
 }
+
+@media screen and (max-width: 1024px) {
+    #ii2vh, #isiid {
+        display: none !important;
+    }
+}
