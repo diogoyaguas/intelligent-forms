@@ -530,10 +530,14 @@
 
                             // If founded operators that match
                             if (Array.isArray(temp) && temp.length != 0) {
-                                final = temp.slice();
-                            } else final = list;
-                            list = final.slice();
+                                final = final.concat(temp).slice();
+                            }
+
                         }
+                    }
+                    if (Array.isArray(final) && final.length != 0) {
+                        list = final.slice();
+                        final = [];
                     }
                 }
             }
@@ -557,7 +561,10 @@
                     document.getElementById(element).value = list[0][headers[index]];
                     if (document.getElementById(element).value != "") {
                         document.getElementById(element).style.borderColor = "#1E90FF"
-                    } else document.getElementById(element).disabled = false; // Allows the user to manually enter in case there is no value
+                    } else {
+                        document.getElementById(element).value = "Desconhecido"
+                        document.getElementById(element).disabled = false; // Allows the user to manually enter in case there is no value
+                    }
                 }, this.fields);
 
             } else if (list.length > 1) { // List has been filtered with more than 1 element
